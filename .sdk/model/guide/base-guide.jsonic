@@ -1,0 +1,26 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 2
+  metrics: count: path: 4
+  metrics: count: method: 4
+
+  entity: character: {
+    path: "/characters": {
+      op: list: method: *GET
+    }
+    path: "/characters/{id}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: combat_style: {
+    path: "/combat-styles": {
+      op: list: method: *GET
+    }
+    path: "/combat-styles/{id}": {
+      op: load: method: *GET
+    }
+  }
+
+}

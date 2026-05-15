@@ -1,0 +1,24 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        name: "Alvaro Rodriguez"
+        url: "https://www.demonslayer-api.com/"
+      }
+      description: "The Demon Slayer API provides developers with structured data related to the popular anime series, including character details, combat styles, and affiliations. It allows users to access information about characters, such as their age, gender, abilities, and memorable quotes, enhancing the experience for fans and developers alike."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://www.demonslayer-api.com/api/v1"
+        }
+      ]
+      title: "Demon Slayer API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

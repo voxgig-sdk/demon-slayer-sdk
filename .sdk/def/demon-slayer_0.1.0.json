@@ -1,0 +1,341 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Demon Slayer API",
+    "description": "The Demon Slayer API provides developers with structured data related to the popular anime series, including character details, combat styles, and affiliations. It allows users to access information about characters, such as their age, gender, abilities, and memorable quotes, enhancing the experience for fans and developers alike.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Alvaro Rodriguez",
+      "url": "https://www.demonslayer-api.com/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://www.demonslayer-api.com/api/v1",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/characters": {
+      "get": {
+        "summary": "Get all characters",
+        "description": "Retrieves a list of all characters from the Demon Slayer series with their details including age, gender, abilities, combat styles, affiliations, and memorable quotes.",
+        "operationId": "getCharacters",
+        "tags": [
+          "Characters"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Filter characters by name",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "gender",
+            "in": "query",
+            "description": "Filter characters by gender",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Male",
+                "Female"
+              ]
+            }
+          },
+          {
+            "name": "age",
+            "in": "query",
+            "description": "Filter characters by age",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "affiliation",
+            "in": "query",
+            "description": "Filter characters by affiliation",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with character data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Character"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/characters/{id}": {
+      "get": {
+        "summary": "Get character by ID",
+        "description": "Retrieves detailed information about a specific character by their unique identifier.",
+        "operationId": "getCharacterById",
+        "tags": [
+          "Characters"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier of the character",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with character details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Character"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Character not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/combat-styles": {
+      "get": {
+        "summary": "Get all combat styles",
+        "description": "Retrieves a list of all combat styles used in the Demon Slayer series, including breathing techniques and demon blood arts.",
+        "operationId": "getCombatStyles",
+        "tags": [
+          "Combat Styles"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Filter combat styles by name",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Filter combat styles by type",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with combat style data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CombatStyle"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/combat-styles/{id}": {
+      "get": {
+        "summary": "Get combat style by ID",
+        "description": "Retrieves detailed information about a specific combat style by its unique identifier.",
+        "operationId": "getCombatStyleById",
+        "tags": [
+          "Combat Styles"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier of the combat style",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with combat style details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CombatStyle"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Combat style not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Character": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the character"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the character"
+          },
+          "age": {
+            "type": "integer",
+            "description": "Age of the character",
+            "nullable": true
+          },
+          "gender": {
+            "type": "string",
+            "description": "Gender of the character",
+            "enum": [
+              "Male",
+              "Female"
+            ]
+          },
+          "race": {
+            "type": "string",
+            "description": "Race of the character (Human, Demon, etc.)"
+          },
+          "affiliation": {
+            "type": "string",
+            "description": "Organization or group the character belongs to"
+          },
+          "combatStyle": {
+            "type": "string",
+            "description": "Primary combat style or breathing technique used by the character"
+          },
+          "abilities": {
+            "type": "array",
+            "description": "List of abilities and techniques the character possesses",
+            "items": {
+              "type": "string"
+            }
+          },
+          "quotes": {
+            "type": "array",
+            "description": "Memorable quotes from the character",
+            "items": {
+              "type": "string"
+            }
+          },
+          "description": {
+            "type": "string",
+            "description": "Detailed description of the character"
+          },
+          "imageUrl": {
+            "type": "string",
+            "description": "URL to the character's image"
+          }
+        }
+      },
+      "CombatStyle": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the combat style"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the combat style"
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of combat style (Breathing Technique, Blood Demon Art, etc.)"
+          },
+          "description": {
+            "type": "string",
+            "description": "Detailed description of the combat style"
+          },
+          "forms": {
+            "type": "array",
+            "description": "List of forms or techniques within this combat style",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Name of the form"
+                },
+                "description": {
+                  "type": "string",
+                  "description": "Description of the form"
+                }
+              }
+            }
+          },
+          "users": {
+            "type": "array",
+            "description": "Characters who use this combat style",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Characters",
+      "description": "Endpoints for accessing character information"
+    },
+    {
+      "name": "Combat Styles",
+      "description": "Endpoints for accessing combat style and technique information"
+    }
+  ]
+}

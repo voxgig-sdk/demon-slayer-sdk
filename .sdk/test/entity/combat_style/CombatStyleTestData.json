@@ -1,0 +1,41 @@
+{
+  "existing": {
+    "combat_style": {
+      "COMBAT_STYLE00": {
+        "description": "s3c",
+        "form": [],
+        "id": "COMBAT_STYLE00",
+        "name": "s3f",
+        "type": "s40",
+        "user": []
+      },
+      "COMBAT_STYLE01": {
+        "description": "s78",
+        "form": [],
+        "id": "COMBAT_STYLE01",
+        "name": "s7b",
+        "type": "s7c",
+        "user": []
+      },
+      "COMBAT_STYLE02": {
+        "description": "sb4",
+        "form": [],
+        "id": "COMBAT_STYLE02",
+        "name": "sb7",
+        "type": "sb8",
+        "user": []
+      }
+    }
+  },
+  "new": {
+    "combat_style": {
+      "combat_style_ref01": {
+        "description": "sf0",
+        "form": [],
+        "name": "sf3",
+        "type": "sf4",
+        "user": []
+      }
+    }
+  }
+}

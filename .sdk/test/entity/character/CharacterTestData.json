@@ -1,0 +1,61 @@
+{
+  "existing": {
+    "character": {
+      "CHARACTER00": {
+        "ability": [],
+        "affiliation": "s6f",
+        "age": "s70",
+        "combat_style": "s71",
+        "description": "s72",
+        "gender": "s73",
+        "id": "CHARACTER00",
+        "image_url": "s75",
+        "name": "s76",
+        "quote": [],
+        "race": "s78"
+      },
+      "CHARACTER01": {
+        "ability": [],
+        "affiliation": "sdd",
+        "age": "sde",
+        "combat_style": "sdf",
+        "description": "se0",
+        "gender": "se1",
+        "id": "CHARACTER01",
+        "image_url": "se3",
+        "name": "se4",
+        "quote": [],
+        "race": "se6"
+      },
+      "CHARACTER02": {
+        "ability": [],
+        "affiliation": "s14b",
+        "age": "s14c",
+        "combat_style": "s14d",
+        "description": "s14e",
+        "gender": "s14f",
+        "id": "CHARACTER02",
+        "image_url": "s151",
+        "name": "s152",
+        "quote": [],
+        "race": "s154"
+      }
+    }
+  },
+  "new": {
+    "character": {
+      "character_ref01": {
+        "ability": [],
+        "affiliation": "s1b9",
+        "age": "s1ba",
+        "combat_style": "s1bb",
+        "description": "s1bc",
+        "gender": "s1bd",
+        "image_url": "s1bf",
+        "name": "s1c0",
+        "quote": [],
+        "race": "s1c2"
+      }
+    }
+  }
+}

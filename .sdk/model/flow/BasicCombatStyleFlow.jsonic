@@ -1,0 +1,44 @@
+# BasicCombatStyleFlow
+
+main: kit: flow: BasicCombatStyleFlow:
+{
+  entity: "combat_style",
+  kind: "basic",
+  name: "BasicCombatStyleFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "combat_style_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "combat_style_ref01",
+        srcdatavar: "combat_style_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "combat_style01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-combat_style_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicCombatStyleFlow"
+}
