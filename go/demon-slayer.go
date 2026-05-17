@@ -1,10 +1,10 @@
 package voxgigdemonslayersdk
 
 import (
-	"github.com/voxgig-sdk/demon-slayer-sdk/core"
-	"github.com/voxgig-sdk/demon-slayer-sdk/entity"
-	"github.com/voxgig-sdk/demon-slayer-sdk/feature"
-	_ "github.com/voxgig-sdk/demon-slayer-sdk/utility"
+	"github.com/voxgig-sdk/demon-slayer-sdk/go/core"
+	"github.com/voxgig-sdk/demon-slayer-sdk/go/entity"
+	"github.com/voxgig-sdk/demon-slayer-sdk/go/feature"
+	_ "github.com/voxgig-sdk/demon-slayer-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

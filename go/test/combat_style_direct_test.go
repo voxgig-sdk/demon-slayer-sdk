@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/demon-slayer-sdk"
-	"github.com/voxgig-sdk/demon-slayer-sdk/core"
+	sdk "github.com/voxgig-sdk/demon-slayer-sdk/go"
+	"github.com/voxgig-sdk/demon-slayer-sdk/go/core"
 )
 
 func TestCombatStyleDirect(t *testing.T) {

@@ -4,7 +4,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/voxgig-sdk/demon-slayer-sdk/core"
+	"github.com/voxgig-sdk/demon-slayer-sdk/go/core"
 )
 
 type LogFeature struct {

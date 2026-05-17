@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/demon-slayer-sdk/core"
+	"github.com/voxgig-sdk/demon-slayer-sdk/go/core"
 )
 
 type BaseFeature struct {

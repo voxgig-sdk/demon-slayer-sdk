@@ -3,7 +3,7 @@ package sdktest
 import (
 	"testing"
 
-	sdk "github.com/voxgig-sdk/demon-slayer-sdk"
+	sdk "github.com/voxgig-sdk/demon-slayer-sdk/go"
 )
 
 func TestExists(t *testing.T) {

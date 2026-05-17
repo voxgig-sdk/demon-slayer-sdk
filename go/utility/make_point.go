@@ -3,9 +3,9 @@ package utility
 import (
 	"strings"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/demon-slayer-sdk/go/utility/struct"
 
-	"github.com/voxgig-sdk/demon-slayer-sdk/core"
+	"github.com/voxgig-sdk/demon-slayer-sdk/go/core"
 )
 
 func makePointUtil(ctx *core.Context) (map[string]any, error) {

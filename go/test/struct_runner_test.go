@@ -6,7 +6,7 @@ package sdktest
 import (
 	"fmt"
 
-	voxgigstruct "github.com/voxgig/struct"
+	voxgigstruct "github.com/voxgig-sdk/demon-slayer-sdk/go/utility/struct"
 
 	"encoding/json"
 	"errors"
