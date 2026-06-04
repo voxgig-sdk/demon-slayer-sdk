@@ -136,14 +136,12 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'DEMONSLAYER_TEST_CHARACTER_ENTID': {},
     'DEMONSLAYER_TEST_LIVE': 'FALSE',
-    'DEMONSLAYER_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.DEMONSLAYER_TEST_LIVE
 
   if (live) {
     const client = new DemonSlayerSDK({
-      apikey: env.DEMONSLAYER_APIKEY,
     })
 
     let idmap: any = env['DEMONSLAYER_TEST_CHARACTER_ENTID']

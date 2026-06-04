@@ -120,7 +120,6 @@ function basicSetup(extra?: any) {
     'DEMON_SLAYER_TEST_CHARACTER_ENTID': idmap,
     'DEMON_SLAYER_TEST_LIVE': 'FALSE',
     'DEMON_SLAYER_TEST_EXPLAIN': 'FALSE',
-    'DEMON_SLAYER_APIKEY': 'NONE',
   })
 
   idmap = env['DEMON_SLAYER_TEST_CHARACTER_ENTID']
@@ -130,7 +129,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new DemonSlayerSDK(merge([
       {
-        apikey: env.DEMON_SLAYER_APIKEY,
       },
       extra
     ]))

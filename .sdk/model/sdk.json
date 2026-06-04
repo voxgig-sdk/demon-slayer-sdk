@@ -17,7 +17,16 @@
           }
         ],
         "title": "Demon Slayer API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "tagline": "Structured data on characters and combat styles from the Demon Slayer anime series",
+        "homepage": "https://www.demonslayer-api.com/",
+        "docs_url": "https://www.demonslayer-api.com/documentation",
+        "about_md": "The Demon Slayer API is a small, fan-built REST service that exposes structured data drawn from the Demon Slayer (Kimetsu no Yaiba) anime series. It is maintained by Alvaro Rodriguez and hosted on Vercel.\n\nWhat you get from the API:\n\n- A roster of characters with attributes such as age, gender, and abilities\n- Combat styles practised by characters in the series, with their affiliations\n- Two top-level collection endpoints under `/api/v1/`: `characters` and `combat-styles`\n\nThe service is CORS-enabled, so the endpoints can be called directly from a browser. No authentication is documented, and no rate limits are published on the homepage or community catalogue page.",
+        "entity_desc": {
+          "character": "A character from the Demon Slayer series with attributes such as age, gender, and abilities; served from `GET /api/v1/characters`.",
+          "combat_style": "A combat style (e.g. Breathing Style) used by characters in the series, along with its affiliations; served from `GET /api/v1/combat-styles`."
+        },
+        "auth": false
       },
       "config": {
         "auth": {
@@ -25,7 +34,15 @@
         },
         "headers": {
           "content-type": "application/json"
-        }
+        },
+        "docs_order": [
+          "ts",
+          "py",
+          "php",
+          "go",
+          "rb",
+          "lua"
+        ]
       },
       "entity": {
         "character": {

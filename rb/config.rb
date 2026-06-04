@@ -15,9 +15,6 @@ module DemonSlayerConfig
       },
       "options" => {
         "base" => "https://www.demonslayer-api.com/api/v1",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },

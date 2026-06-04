@@ -31,9 +31,7 @@ loading a specific record.
 ```ruby
 require_relative "DemonSlayer_sdk"
 
-client = DemonSlayerSDK.new({
-  "apikey" => ENV["DEMON-SLAYER_APIKEY"],
-})
+client = DemonSlayerSDK.new({})
 ```
 
 ### 2. List characters
@@ -135,7 +133,6 @@ Create a `.env.local` file at the project root:
 
 ```
 DEMON-SLAYER_TEST_LIVE=TRUE
-DEMON-SLAYER_APIKEY=<your-key>
 ```
 
 Then run:
@@ -158,7 +155,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `String` | API key for authentication. |
 | `base` | `String` | Base URL of the API server. |
 | `prefix` | `String` | URL path prefix prepended to all requests. |
 | `suffix` | `String` | URL path suffix appended to all requests. |

@@ -109,14 +109,12 @@ def _combat_style_direct_setup(mockres):
     env = runner.env_override({
         "DEMONSLAYER_TEST_COMBAT_STYLE_ENTID": {},
         "DEMONSLAYER_TEST_LIVE": "FALSE",
-        "DEMONSLAYER_APIKEY": "NONE",
     })
 
     live = env.get("DEMONSLAYER_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
-            "apikey": env.get("DEMONSLAYER_APIKEY"),
         }
         client = DemonSlayerSDK(merged_opts)
         return {

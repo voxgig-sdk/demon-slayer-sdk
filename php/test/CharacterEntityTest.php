@@ -96,7 +96,6 @@ function character_basic_setup($extra)
         "DEMONSLAYER_TEST_CHARACTER_ENTID" => $idmap,
         "DEMONSLAYER_TEST_LIVE" => "FALSE",
         "DEMONSLAYER_TEST_EXPLAIN" => "FALSE",
-        "DEMONSLAYER_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -108,7 +107,6 @@ function character_basic_setup($extra)
     if ($env["DEMONSLAYER_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["DEMONSLAYER_APIKEY"],
             ],
             $extra ?? [],
         ]);

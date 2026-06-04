@@ -123,14 +123,12 @@ function combat_style_direct_setup($mockres)
     $env = Runner::env_override([
         "DEMONSLAYER_TEST_COMBAT_STYLE_ENTID" => [],
         "DEMONSLAYER_TEST_LIVE" => "FALSE",
-        "DEMONSLAYER_APIKEY" => "NONE",
     ]);
 
     $live = $env["DEMONSLAYER_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
-            "apikey" => $env["DEMONSLAYER_APIKEY"],
         ];
         $client = new DemonSlayerSDK($merged_opts);
         return [
