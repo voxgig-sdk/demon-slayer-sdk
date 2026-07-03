@@ -10,13 +10,13 @@ The Ruby SDK for the DemonSlayer API — an entity-oriented client using idiomat
 
 ## Install
 ```bash
-gem install demon-slayer-sdk
+gem install voxgig-sdk-demon-slayer
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "demon-slayer-sdk"
+gem "voxgig-sdk-demon-slayer"
 ```
 
 Then run:

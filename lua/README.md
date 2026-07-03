@@ -10,7 +10,7 @@ The Lua SDK for the DemonSlayer API — an entity-oriented client using Lua conv
 
 ## Install
 ```bash
-luarocks install demon-slayer-sdk
+luarocks install voxgig-sdk-demon-slayer
 ```
 
 If the module is not yet published, add the source directory to

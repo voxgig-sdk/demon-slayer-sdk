@@ -10,7 +10,7 @@ The PHP SDK for the DemonSlayer API — an entity-oriented client using PHP conv
 
 ## Install
 ```bash
-composer require voxgig/demon-slayer-sdk
+composer require voxgig-sdk/demon-slayer
 ```
 
 

@@ -10,7 +10,7 @@ The Python SDK for the DemonSlayer API — an entity-oriented client following P
 
 ## Install
 ```bash
-pip install demon-slayer-sdk
+pip install voxgig-sdk-demon-slayer
 ```
 
 Or install from source:

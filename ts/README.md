@@ -10,7 +10,7 @@ The TypeScript SDK for the DemonSlayer API — a type-safe, entity-oriented clie
 
 ## Install
 ```bash
-npm install demon-slayer
+npm install @voxgig-sdk/demon-slayer
 ```
 ## Tutorial: your first API call
 
