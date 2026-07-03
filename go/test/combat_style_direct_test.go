@@ -194,12 +194,14 @@ func combat_styleDirectSetup(mockres any) *combat_styleDirectSetupResult {
 	env := envOverride(map[string]any{
 		"DEMONSLAYER_TEST_COMBAT_STYLE_ENTID": map[string]any{},
 		"DEMONSLAYER_TEST_LIVE":    "FALSE",
+		"DEMONSLAYER_APIKEY":       "NONE",
 	})
 
 	live := env["DEMONSLAYER_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["DEMONSLAYER_APIKEY"],
 		}
 		client := sdk.NewDemonSlayerSDK(mergedOpts)
 

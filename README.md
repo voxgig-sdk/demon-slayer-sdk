@@ -1,20 +1,8 @@
 # DemonSlayer SDK
 
-Structured data on characters and combat styles from the Demon Slayer anime series
+Demon Slayer API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Demon Slayer API
-
-The Demon Slayer API is a small, fan-built REST service that exposes structured data drawn from the Demon Slayer (Kimetsu no Yaiba) anime series. It is maintained by Alvaro Rodriguez and hosted on Vercel.
-
-What you get from the API:
-
-- A roster of characters with attributes such as age, gender, and abilities
-- Combat styles practised by characters in the series, with their affiliations
-- Two top-level collection endpoints under `/api/v1/`: `characters` and `combat-styles`
-
-The service is CORS-enabled, so the endpoints can be called directly from a browser. No authentication is documented, and no rate limits are published on the homepage or community catalogue page.
 
 ## Try it
 
@@ -48,29 +36,31 @@ gem install demon-slayer-sdk
 luarocks install demon-slayer-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { DemonSlayerSDK } from 'demon-slayer'
 
-const client = new DemonSlayerSDK({})
+const client = new DemonSlayerSDK({
+  apikey: process.env.DEMON-SLAYER_APIKEY,
+})
 
 // List all characters
 const characters = await client.Character().list()
+console.log(characters.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -100,8 +90,8 @@ The API exposes 2 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Character** | A character from the Demon Slayer series with attributes such as age, gender, and abilities; served from `GET /api/v1/characters`. | `/characters` |
-| **CombatStyle** | A combat style (e.g. Breathing Style) used by characters in the series, along with its affiliations; served from `GET /api/v1/combat-styles`. | `/combat-styles` |
+| **Character** |  | `/characters` |
+| **CombatStyle** |  | `/combat-styles` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -111,17 +101,20 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from demonslayer_sdk import DemonSlayerSDK
 
-client = DemonSlayerSDK({})
+client = DemonSlayerSDK({
+    "apikey": os.environ.get("DEMON-SLAYER_APIKEY"),
+})
 
 # List all characters
-characters, err = client.Character(None).list(None, None)
+characters, err = client.Character().list()
+print(characters)
 
 # Load a specific character
-character, err = client.Character(None).load(
-    {"id": "example_id"}, None
-)
+character, err = client.Character().load({"id": "example_id"})
+print(character)
 ```
 
 ### PHP
@@ -130,15 +123,17 @@ character, err = client.Character(None).load(
 <?php
 require_once 'demonslayer_sdk.php';
 
-$client = new DemonSlayerSDK([]);
+$client = new DemonSlayerSDK([
+    "apikey" => getenv("DEMON-SLAYER_APIKEY"),
+]);
 
 // List all characters
-[$characters, $err] = $client->Character(null)->list(null, null);
+[$characters, $err] = $client->Character()->list();
+print_r($characters);
 
 // Load a specific character
-[$character, $err] = $client->Character(null)->load(
-    ["id" => "example_id"], null
-);
+[$character, $err] = $client->Character()->load(["id" => "example_id"]);
+print_r($character);
 ```
 
 ### Golang
@@ -146,10 +141,13 @@ $client = new DemonSlayerSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/demon-slayer-sdk/go"
 
-client := sdk.NewDemonSlayerSDK(map[string]any{})
+client := sdk.NewDemonSlayerSDK(map[string]any{
+    "apikey": os.Getenv("DEMON-SLAYER_APIKEY"),
+})
 
 // List all characters
 characters, err := client.Character(nil).List(nil, nil)
+fmt.Println(characters)
 ```
 
 ### Ruby
@@ -157,15 +155,17 @@ characters, err := client.Character(nil).List(nil, nil)
 ```ruby
 require_relative "DemonSlayer_sdk"
 
-client = DemonSlayerSDK.new({})
+client = DemonSlayerSDK.new({
+  "apikey" => ENV["DEMON-SLAYER_APIKEY"],
+})
 
 # List all characters
-characters, err = client.Character(nil).list(nil, nil)
+characters, err = client.Character().list
+puts characters
 
 # Load a specific character
-character, err = client.Character(nil).load(
-  { "id" => "example_id" }, nil
-)
+character, err = client.Character().load({ "id" => "example_id" })
+puts character
 ```
 
 ### Lua
@@ -173,15 +173,17 @@ character, err = client.Character(nil).load(
 ```lua
 local sdk = require("demon-slayer_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("DEMON-SLAYER_APIKEY"),
+})
 
 -- List all characters
-local characters, err = client:Character(nil):list(nil, nil)
+local characters, err = client:Character():list()
+print(characters)
 
 -- Load a specific character
-local character, err = client:Character(nil):load(
-  { id = "example_id" }, nil
-)
+local character, err = client:Character():load({ id = "example_id" })
+print(character)
 ```
 
 ## Unit testing in offline mode
@@ -200,25 +202,21 @@ const result = await client.Character().load({ id: 'test01' })
 ### Python
 
 ```python
-client = DemonSlayerSDK.test(None, None)
-result, err = client.Character(None).load(
-    {"id": "test01"}, None
-)
+client = DemonSlayerSDK.test()
+result, err = client.Character().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = DemonSlayerSDK::test(null, null);
-[$result, $err] = $client->Character(null)->load(
-    ["id" => "test01"], null
-);
+$client = DemonSlayerSDK::test();
+[$result, $err] = $client->Character()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Character(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -227,19 +225,15 @@ result, err := client.Character(nil).Load(
 ### Ruby
 
 ```ruby
-client = DemonSlayerSDK.test(nil, nil)
-result, err = client.Character(nil).load(
-  { "id" => "test01" }, nil
-)
+client = DemonSlayerSDK.test
+result, err = client.Character().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Character(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Character():load({ id = "test01" })
 ```
 
 ## How it works
@@ -343,11 +337,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Demon Slayer API
-
-- Upstream: [https://www.demonslayer-api.com/](https://www.demonslayer-api.com/)
-- API docs: [https://www.demonslayer-api.com/documentation](https://www.demonslayer-api.com/documentation)
 
 ---
 

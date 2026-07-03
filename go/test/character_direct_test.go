@@ -194,12 +194,14 @@ func characterDirectSetup(mockres any) *characterDirectSetupResult {
 	env := envOverride(map[string]any{
 		"DEMONSLAYER_TEST_CHARACTER_ENTID": map[string]any{},
 		"DEMONSLAYER_TEST_LIVE":    "FALSE",
+		"DEMONSLAYER_APIKEY":       "NONE",
 	})
 
 	live := env["DEMONSLAYER_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["DEMONSLAYER_APIKEY"],
 		}
 		client := sdk.NewDemonSlayerSDK(mergedOpts)
 

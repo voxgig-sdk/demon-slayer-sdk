@@ -135,6 +135,7 @@ func characterBasicSetup(extra map[string]any) *entityTestSetup {
 		"DEMONSLAYER_TEST_CHARACTER_ENTID": idmap,
 		"DEMONSLAYER_TEST_LIVE":      "FALSE",
 		"DEMONSLAYER_TEST_EXPLAIN":   "FALSE",
+		"DEMONSLAYER_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["DEMONSLAYER_TEST_CHARACTER_ENTID"])
@@ -145,6 +146,7 @@ func characterBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["DEMONSLAYER_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["DEMONSLAYER_APIKEY"],
 			},
 			extra,
 		})

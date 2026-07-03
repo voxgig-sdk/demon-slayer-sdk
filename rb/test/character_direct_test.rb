@@ -116,12 +116,14 @@ def character_direct_setup(mockres)
   env = Runner.env_override({
     "DEMONSLAYER_TEST_CHARACTER_ENTID" => {},
     "DEMONSLAYER_TEST_LIVE" => "FALSE",
+    "DEMONSLAYER_APIKEY" => "NONE",
   })
 
   live = env["DEMONSLAYER_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {
+      "apikey" => env["DEMONSLAYER_APIKEY"],
     }
     client = DemonSlayerSDK.new(merged_opts)
     return {

@@ -102,6 +102,7 @@ def _character_basic_setup(extra):
         "DEMONSLAYER_TEST_CHARACTER_ENTID": idmap,
         "DEMONSLAYER_TEST_LIVE": "FALSE",
         "DEMONSLAYER_TEST_EXPLAIN": "FALSE",
+        "DEMONSLAYER_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -112,6 +113,7 @@ def _character_basic_setup(extra):
     if env.get("DEMONSLAYER_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
+                "apikey": env.get("DEMONSLAYER_APIKEY"),
             },
             extra or {},
         ])
