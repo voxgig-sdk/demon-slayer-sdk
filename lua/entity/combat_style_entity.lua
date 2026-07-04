@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch CombatStyleLoadMatch
+---@param ctrl? table
+---@return CombatStyle
+---@return string? err
 function CombatStyleEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({
@@ -104,6 +108,10 @@ end
 
 
 
+---@param reqmatch CombatStyleListMatch
+---@param ctrl? table
+---@return CombatStyle[]
+---@return string? err
 function CombatStyleEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

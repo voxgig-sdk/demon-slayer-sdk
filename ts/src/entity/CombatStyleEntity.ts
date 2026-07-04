@@ -14,9 +14,14 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  CombatStyle,
+  CombatStyleLoadMatch,
+  CombatStyleListMatch,
+} from '../DemonSlayerTypes'
 
 // TODO: needs Entity superclass
-class CombatStyleEntity extends DemonSlayerEntityBase {
+class CombatStyleEntity extends DemonSlayerEntityBase<CombatStyle> {
 
   constructor(client: DemonSlayerSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +37,7 @@ class CombatStyleEntity extends DemonSlayerEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: CombatStyleLoadMatch, ctrl?: Control): Promise<CombatStyle> {
 
     const utility = this._utility
 
@@ -136,14 +141,16 @@ class CombatStyleEntity extends DemonSlayerEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<CombatStyle> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: CombatStyleListMatch, ctrl?: Control): Promise<CombatStyle[]> {
 
     const utility = this._utility
 
@@ -243,7 +250,9 @@ class CombatStyleEntity extends DemonSlayerEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<CombatStyle[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

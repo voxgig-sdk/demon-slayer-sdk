@@ -15,9 +15,6 @@ module DemonSlayerConfig
       },
       "options" => {
         "base" => "https://www.demonslayer-api.com/api/v1",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },
@@ -188,6 +185,7 @@ module DemonSlayerConfig
                         "orig" => "id",
                         "reqd" => true,
                         "type" => "`$STRING`",
+                        "index$" => 0,
                       },
                     ],
                   },
@@ -324,6 +322,7 @@ module DemonSlayerConfig
                         "orig" => "id",
                         "reqd" => true,
                         "type" => "`$STRING`",
+                        "index$" => 0,
                       },
                     ],
                   },

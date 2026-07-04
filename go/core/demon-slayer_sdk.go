@@ -245,11 +245,17 @@ func (sdk *DemonSlayerSDK) Direct(fetchargs map[string]any) (map[string]any, err
 }
 
 
+// Character returns a Character entity bound to this client.
+// Idiomatic usage: client.Character(nil).List(nil, nil) or
+// client.Character(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *DemonSlayerSDK) Character(data map[string]any) DemonSlayerEntity {
 	return NewCharacterEntityFunc(sdk, data)
 }
 
 
+// CombatStyle returns a CombatStyle entity bound to this client.
+// Idiomatic usage: client.CombatStyle(nil).List(nil, nil) or
+// client.CombatStyle(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *DemonSlayerSDK) CombatStyle(data map[string]any) DemonSlayerEntity {
 	return NewCombatStyleEntityFunc(sdk, data)
 }

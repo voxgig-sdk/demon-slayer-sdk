@@ -45,6 +45,7 @@ class CombatStyleEntity
     end
   end
 
+  # @return [CombatStyle, Hash] the current CombatStyle data
   def data_get
     @_utility.feature_hook.call(@_entctx, "GetData")
     VoxgigStruct.clone(@_data)
@@ -57,12 +58,18 @@ class CombatStyleEntity
     end
   end
 
+  # @return [Hash] the current match filter (any subset of CombatStyle fields)
   def match_get
     @_utility.feature_hook.call(@_entctx, "GetMatch")
     VoxgigStruct.clone(@_match)
   end
 
   
+  # Load a single CombatStyle.
+  #
+  # @param reqmatch [CombatStyleLoadMatch, Hash, nil] match criteria (id/query fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [CombatStyle, Hash] the loaded CombatStyle; raises DemonSlayerError on failure
   def load(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({
@@ -86,6 +93,11 @@ class CombatStyleEntity
 
 
   
+  # List CombatStyle items matching the given filter.
+  #
+  # @param reqmatch [CombatStyleListMatch, Hash, nil] match filter (any subset of CombatStyle fields)
+  # @param ctrl [Object, nil] optional per-call control
+  # @return [Array<CombatStyle>, Array] the matching CombatStyle items; raises DemonSlayerError on failure
   def list(reqmatch, ctrl = nil)
     utility = @_utility
     ctx = utility.make_context.call({

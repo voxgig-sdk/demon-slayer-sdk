@@ -85,6 +85,27 @@ func (e *CombatStyleEntity) Match(args ...any) any {
 	return out
 }
 
+// DataTyped is the statically-typed accessor for this entity's data. With no
+// argument it returns the current data as an CombatStyle; with an argument it
+// sets the data and returns the stored value. It delegates to the untyped Data
+// (identical runtime) and converts at the typed boundary.
+func (e *CombatStyleEntity) DataTyped(data ...CombatStyle) CombatStyle {
+	if len(data) > 0 {
+		return typedFrom[CombatStyle](e.Data(asMap(data[0])))
+	}
+	return typedFrom[CombatStyle](e.Data())
+}
+
+// MatchTyped mirrors DataTyped for the entity's match filter. The match is a
+// partial of the entity, so it round-trips through CombatStyle (all fields
+// optional at the wire level).
+func (e *CombatStyleEntity) MatchTyped(match ...CombatStyle) CombatStyle {
+	if len(match) > 0 {
+		return typedFrom[CombatStyle](e.Match(asMap(match[0])))
+	}
+	return typedFrom[CombatStyle](e.Match())
+}
+
 
 func (e *CombatStyleEntity) Load(reqmatch map[string]any, ctrl map[string]any) (any, error) {
 	utility := e.utility
@@ -111,6 +132,17 @@ func (e *CombatStyleEntity) Load(reqmatch map[string]any, ctrl map[string]any) (
 	})
 }
 
+// LoadTyped is the statically-typed variant of Load: it takes an
+// CombatStyleLoadMatch and returns an CombatStyle. It delegates to the untyped
+// Load (identical runtime) and converts at the typed boundary.
+func (e *CombatStyleEntity) LoadTyped(reqmatch CombatStyleLoadMatch, ctrl map[string]any) (CombatStyle, error) {
+	res, err := e.Load(asMap(reqmatch), ctrl)
+	if err != nil {
+		return CombatStyle{}, err
+	}
+	return typedFrom[CombatStyle](res), nil
+}
+
 
 
 
@@ -131,6 +163,17 @@ func (e *CombatStyleEntity) List(reqmatch map[string]any, ctrl map[string]any) (
 			}
 		}
 	})
+}
+
+// ListTyped is the statically-typed variant of List: it takes an
+// CombatStyleListMatch and returns []CombatStyle. It delegates to the untyped
+// List (identical runtime) and converts at the typed boundary.
+func (e *CombatStyleEntity) ListTyped(reqmatch CombatStyleListMatch, ctrl map[string]any) ([]CombatStyle, error) {
+	res, err := e.List(asMap(reqmatch), ctrl)
+	if err != nil {
+		return nil, err
+	}
+	return typedSliceFrom[CombatStyle](res), nil
 }
 
 

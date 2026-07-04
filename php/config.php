@@ -20,9 +20,6 @@ class DemonSlayerConfig
             ],
             "options" => [
                 "base" => "https://www.demonslayer-api.com/api/v1",
-                "auth" => [
-                    "prefix" => "Bearer",
-                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],
@@ -193,6 +190,7 @@ class DemonSlayerConfig
                         'orig' => 'id',
                         'reqd' => true,
                         'type' => '`$STRING`',
+                        'index$' => 0,
                       ],
                     ],
                   ],
@@ -329,6 +327,7 @@ class DemonSlayerConfig
                         'orig' => 'id',
                         'reqd' => true,
                         'type' => '`$STRING`',
+                        'index$' => 0,
                       ],
                     ],
                   ],

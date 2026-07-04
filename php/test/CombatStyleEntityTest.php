@@ -50,16 +50,14 @@ class CombatStyleEntityTest extends TestCase
         $combat_style_ref01_ent = $client->CombatStyle(null);
         $combat_style_ref01_match = [];
 
-        [$combat_style_ref01_list_result, $err] = $combat_style_ref01_ent->list($combat_style_ref01_match, null);
-        $this->assertNull($err);
+        $combat_style_ref01_list_result = $combat_style_ref01_ent->list($combat_style_ref01_match, null);
         $this->assertIsArray($combat_style_ref01_list_result);
 
         // LOAD
         $combat_style_ref01_match_dt0 = [
             "id" => $combat_style_ref01_data["id"],
         ];
-        [$combat_style_ref01_data_dt0_loaded, $err] = $combat_style_ref01_ent->load($combat_style_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $combat_style_ref01_data_dt0_loaded = $combat_style_ref01_ent->load($combat_style_ref01_match_dt0, null);
         $combat_style_ref01_data_dt0_load_result = Helpers::to_map($combat_style_ref01_data_dt0_loaded);
         $this->assertNotNull($combat_style_ref01_data_dt0_load_result);
         $this->assertEquals($combat_style_ref01_data_dt0_load_result["id"], $combat_style_ref01_data["id"]);
@@ -96,7 +94,6 @@ function combat_style_basic_setup($extra)
         "DEMONSLAYER_TEST_COMBAT_STYLE_ENTID" => $idmap,
         "DEMONSLAYER_TEST_LIVE" => "FALSE",
         "DEMONSLAYER_TEST_EXPLAIN" => "FALSE",
-        "DEMONSLAYER_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -108,7 +105,6 @@ function combat_style_basic_setup($extra)
     if ($env["DEMONSLAYER_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["DEMONSLAYER_APIKEY"],
             ],
             $extra ?? [],
         ]);

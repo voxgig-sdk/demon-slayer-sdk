@@ -50,16 +50,14 @@ class TestCombatStyleEntity:
         combat_style_ref01_ent = client.CombatStyle(None)
         combat_style_ref01_match = {}
 
-        combat_style_ref01_list_result, err = combat_style_ref01_ent.list(combat_style_ref01_match, None)
-        assert err is None
+        combat_style_ref01_list_result = combat_style_ref01_ent.list(combat_style_ref01_match, None)
         assert isinstance(combat_style_ref01_list_result, list)
 
         # LOAD
         combat_style_ref01_match_dt0 = {
             "id": combat_style_ref01_data["id"],
         }
-        combat_style_ref01_data_dt0_loaded, err = combat_style_ref01_ent.load(combat_style_ref01_match_dt0, None)
-        assert err is None
+        combat_style_ref01_data_dt0_loaded = combat_style_ref01_ent.load(combat_style_ref01_match_dt0, None)
         combat_style_ref01_data_dt0_load_result = helpers.to_map(combat_style_ref01_data_dt0_loaded)
         assert combat_style_ref01_data_dt0_load_result is not None
         assert combat_style_ref01_data_dt0_load_result["id"] == combat_style_ref01_data["id"]
@@ -102,7 +100,6 @@ def _combat_style_basic_setup(extra):
         "DEMONSLAYER_TEST_COMBAT_STYLE_ENTID": idmap,
         "DEMONSLAYER_TEST_LIVE": "FALSE",
         "DEMONSLAYER_TEST_EXPLAIN": "FALSE",
-        "DEMONSLAYER_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -113,7 +110,6 @@ def _combat_style_basic_setup(extra):
     if env.get("DEMONSLAYER_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("DEMONSLAYER_APIKEY"),
             },
             extra or {},
         ])

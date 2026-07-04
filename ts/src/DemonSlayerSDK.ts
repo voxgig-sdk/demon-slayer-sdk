@@ -3,6 +3,8 @@
 import { CharacterEntity } from './entity/CharacterEntity'
 import { CombatStyleEntity } from './entity/CombatStyleEntity'
 
+export type * from './DemonSlayerTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -203,12 +205,28 @@ class DemonSlayerSDK {
 
 
 
+  _character?: CharacterEntity
+
+  // Idiomatic facade: `client.character.list()` / `client.character.load({ id })`.
+  get character(): CharacterEntity {
+    return (this._character ??= new CharacterEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.character` instead. */
   Character(data?: any) {
     const self = this
     return new CharacterEntity(self,data)
   }
 
 
+  _combat_style?: CombatStyleEntity
+
+  // Idiomatic facade: `client.combat_style.list()` / `client.combat_style.load({ id })`.
+  get combat_style(): CombatStyleEntity {
+    return (this._combat_style ??= new CombatStyleEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.combat_style` instead. */
   CombatStyle(data?: any) {
     const self = this
     return new CombatStyleEntity(self,data)
