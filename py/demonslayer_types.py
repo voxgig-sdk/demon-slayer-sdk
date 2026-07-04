@@ -4,69 +4,67 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class Character:
-    ability: Optional[list] = None
-    affiliation: Optional[str] = None
-    age: Optional[int] = None
-    combat_style: Optional[str] = None
-    description: Optional[str] = None
-    gender: Optional[str] = None
-    id: Optional[str] = None
-    image_url: Optional[str] = None
-    name: Optional[str] = None
-    quote: Optional[list] = None
-    race: Optional[str] = None
+class Character(TypedDict, total=False):
+    ability: list
+    affiliation: str
+    age: int
+    combat_style: str
+    description: str
+    gender: str
+    id: str
+    image_url: str
+    name: str
+    quote: list
+    race: str
 
 
-@dataclass
-class CharacterLoadMatch:
+class CharacterLoadMatch(TypedDict):
     id: str
 
 
-@dataclass
-class CharacterListMatch:
-    ability: Optional[list] = None
-    affiliation: Optional[str] = None
-    age: Optional[int] = None
-    combat_style: Optional[str] = None
-    description: Optional[str] = None
-    gender: Optional[str] = None
-    id: Optional[str] = None
-    image_url: Optional[str] = None
-    name: Optional[str] = None
-    quote: Optional[list] = None
-    race: Optional[str] = None
+class CharacterListMatch(TypedDict, total=False):
+    ability: list
+    affiliation: str
+    age: int
+    combat_style: str
+    description: str
+    gender: str
+    id: str
+    image_url: str
+    name: str
+    quote: list
+    race: str
 
 
-@dataclass
-class CombatStyle:
-    description: Optional[str] = None
-    form: Optional[list] = None
-    id: Optional[str] = None
-    name: Optional[str] = None
-    type: Optional[str] = None
-    user: Optional[list] = None
+class CombatStyle(TypedDict, total=False):
+    description: str
+    form: list
+    id: str
+    name: str
+    type: str
+    user: list
 
 
-@dataclass
-class CombatStyleLoadMatch:
+class CombatStyleLoadMatch(TypedDict):
     id: str
 
 
-@dataclass
-class CombatStyleListMatch:
-    description: Optional[str] = None
-    form: Optional[list] = None
-    id: Optional[str] = None
-    name: Optional[str] = None
-    type: Optional[str] = None
-    user: Optional[list] = None
-
+class CombatStyleListMatch(TypedDict, total=False):
+    description: str
+    form: list
+    id: str
+    name: str
+    type: str
+    user: list

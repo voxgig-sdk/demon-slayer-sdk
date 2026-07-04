@@ -84,7 +84,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## CharacterEntity
 
 ```python
-character = client.character
+character = client.Character()
 ```
 
 ### Fields
@@ -110,7 +110,9 @@ character = client.character
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.character.list({})
+results = client.Character().list({})
+for character in results:
+    print(character)
 ```
 
 #### `load(reqmatch, ctrl=None) -> dict`
@@ -118,7 +120,7 @@ results = client.character.list({})
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.character.load({"id": "character_id"})
+result = client.Character().load({"id": "character_id"})
 ```
 
 ### Common Methods
@@ -153,7 +155,7 @@ Return the entity name.
 ## CombatStyleEntity
 
 ```python
-combat_style = client.combat_style
+combat_style = client.CombatStyle()
 ```
 
 ### Fields
@@ -174,7 +176,9 @@ combat_style = client.combat_style
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.combat_style.list({})
+results = client.CombatStyle().list({})
+for combat_style in results:
+    print(combat_style)
 ```
 
 #### `load(reqmatch, ctrl=None) -> dict`
@@ -182,7 +186,7 @@ results = client.combat_style.list({})
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.combat_style.load({"id": "combat_style_id"})
+result = client.CombatStyle().load({"id": "combat_style_id"})
 ```
 
 ### Common Methods

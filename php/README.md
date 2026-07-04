@@ -29,18 +29,16 @@ require_once 'demonslayer_sdk.php';
 $client = new DemonSlayerSDK();
 ```
 
-### 2. List characters
+### 2. List character records
 
 ```php
 try {
-    $result = $client->character()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of Character records — iterate directly.
+    $characters = $client->Character()->list();
+    foreach ($characters as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -49,9 +47,10 @@ try {
 
 ```php
 try {
-    $result = $client->character()->load(["id" => "example_id"]);
-    print_r($result);
-} catch (\Exception $err) {
+    // load() returns the bare Character record (throws on error).
+    $character = $client->Character()->load(["id" => "example_id"]);
+    print_r($character);
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -97,13 +96,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = DemonSlayerSDK::test();
+$client = DemonSlayerSDK::test([
+    "entity" => ["character" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->character()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$character = $client->Character()->load(["id" => "test01"]);
+print_r($character);
 ```
 
 ### Use a custom fetch function
@@ -265,7 +268,7 @@ API path: `/combat-styles`
 
 ### Character
 
-Create an instance: `const character = client.character`
+Create an instance: `$character = $client->Character();`
 
 #### Operations
 
@@ -292,20 +295,22 @@ Create an instance: `const character = client.character`
 
 #### Example: Load
 
-```ts
-const character = await client.character.load({ id: 'character_id' })
+```php
+// load() returns the bare Character record (throws on error).
+$character = $client->Character()->load(["id" => "character_id"]);
 ```
 
 #### Example: List
 
-```ts
-const characters = await client.character.list()
+```php
+// list() returns an array of Character records (throws on error).
+$characters = $client->Character()->list();
 ```
 
 
 ### CombatStyle
 
-Create an instance: `const combat_style = client.combat_style`
+Create an instance: `$combat_style = $client->CombatStyle();`
 
 #### Operations
 
@@ -327,14 +332,16 @@ Create an instance: `const combat_style = client.combat_style`
 
 #### Example: Load
 
-```ts
-const combat_style = await client.combat_style.load({ id: 'combat_style_id' })
+```php
+// load() returns the bare CombatStyle record (throws on error).
+$combat_style = $client->CombatStyle()->load(["id" => "combat_style_id"]);
 ```
 
 #### Example: List
 
-```ts
-const combat_styles = await client.combat_style.list()
+```php
+// list() returns an array of CombatStyle records (throws on error).
+$combat_styles = $client->CombatStyle()->list();
 ```
 
 
@@ -409,7 +416,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$character = $client->character();
+$character = $client->Character();
 $character->load(["id" => "example_id"]);
 
 // $character->dataGet() now returns the loaded character data

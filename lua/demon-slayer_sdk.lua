@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:character():list() / client:character():load({ id = ... })
-function DemonSlayerSDK:character(data)
+-- Idiomatic facade: client:Character():list() / client:Character():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function DemonSlayerSDK:Character(data)
   local EntityMod = require("entity.character_entity")
   if data == nil then
     if self._character == nil then
@@ -256,15 +257,10 @@ function DemonSlayerSDK:character(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:character() instead.
-function DemonSlayerSDK:Character(data)
-  local EntityMod = require("entity.character_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:combat_style():list() / client:combat_style():load({ id = ... })
-function DemonSlayerSDK:combat_style(data)
+-- Idiomatic facade: client:CombatStyle():list() / client:CombatStyle():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function DemonSlayerSDK:CombatStyle(data)
   local EntityMod = require("entity.combat_style_entity")
   if data == nil then
     if self._combat_style == nil then
@@ -272,12 +268,6 @@ function DemonSlayerSDK:combat_style(data)
     end
     return self._combat_style
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:combat_style() instead.
-function DemonSlayerSDK:CombatStyle(data)
-  local EntityMod = require("entity.combat_style_entity")
   return EntityMod.new(self, data)
 end
 

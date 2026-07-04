@@ -121,7 +121,7 @@ Alias for `DemonSlayerSDK.test()`.
 ## CharacterEntity
 
 ```ts
-const character = client.character
+const character = client.Character()
 ```
 
 ### Fields
@@ -147,7 +147,7 @@ const character = client.character
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.character.list()
+const results = await client.Character().list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -155,7 +155,7 @@ const results = await client.character.list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.character.load({ id: 'character_id' })
+const result = await client.Character().load({ id: 'character_id' })
 ```
 
 ### Common Methods
@@ -189,7 +189,7 @@ Return a copy of the entity options.
 ## CombatStyleEntity
 
 ```ts
-const combat_style = client.combat_style
+const combat_style = client.CombatStyle()
 ```
 
 ### Fields
@@ -210,7 +210,7 @@ const combat_style = client.combat_style
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.combat_style.list()
+const results = await client.CombatStyle().list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -218,7 +218,7 @@ const results = await client.combat_style.list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.combat_style.load({ id: 'combat_style_id' })
+const result = await client.CombatStyle().load({ id: 'combat_style_id' })
 ```
 
 ### Common Methods

@@ -205,28 +205,14 @@ class DemonSlayerSDK {
 
 
 
-  _character?: CharacterEntity
-
-  // Idiomatic facade: `client.character.list()` / `client.character.load({ id })`.
-  get character(): CharacterEntity {
-    return (this._character ??= new CharacterEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.character` instead. */
+  // Entity access: `client.Character().list()` / `client.Character().load({ id })`.
   Character(data?: any) {
     const self = this
     return new CharacterEntity(self,data)
   }
 
 
-  _combat_style?: CombatStyleEntity
-
-  // Idiomatic facade: `client.combat_style.list()` / `client.combat_style.load({ id })`.
-  get combat_style(): CombatStyleEntity {
-    return (this._combat_style ??= new CombatStyleEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.combat_style` instead. */
+  // Entity access: `client.CombatStyle().list()` / `client.CombatStyle().load({ id })`.
   CombatStyle(data?: any) {
     const self = this
     return new CombatStyleEntity(self,data)

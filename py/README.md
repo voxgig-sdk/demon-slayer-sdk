@@ -31,24 +31,28 @@ from demonslayer_sdk import DemonSlayerSDK
 client = DemonSlayerSDK()
 ```
 
-### 2. List characters
+### 2. List character records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.character.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    characters = client.Character().list({})
+    for character in characters:
+        print(character)
 except Exception as err:
     print(f"list failed: {err}")
 ```
 
 ### 3. Load a character
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.character.load({"id": "example_id"})
-    print(result)
+    character = client.Character().load({"id": "example_id"})
+    print(character)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -96,8 +100,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = DemonSlayerSDK.test()
 
-result = client.character.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+character = client.Character().load({"id": "test01"})
+# character contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -256,7 +261,7 @@ API path: `/combat-styles`
 
 ### Character
 
-Create an instance: `const character = client.character`
+Create an instance: `character = client.Character()`
 
 #### Operations
 
@@ -283,20 +288,20 @@ Create an instance: `const character = client.character`
 
 #### Example: Load
 
-```ts
-const character = await client.character.load({ id: 'character_id' })
+```python
+character = client.Character().load({"id": "character_id"})
 ```
 
 #### Example: List
 
-```ts
-const characters = await client.character.list()
+```python
+characters = client.Character().list({})
 ```
 
 
 ### CombatStyle
 
-Create an instance: `const combat_style = client.combat_style`
+Create an instance: `combat_style = client.CombatStyle()`
 
 #### Operations
 
@@ -318,14 +323,14 @@ Create an instance: `const combat_style = client.combat_style`
 
 #### Example: Load
 
-```ts
-const combat_style = await client.combat_style.load({ id: 'combat_style_id' })
+```python
+combat_style = client.CombatStyle().load({"id": "combat_style_id"})
 ```
 
 #### Example: List
 
-```ts
-const combat_styles = await client.combat_style.list()
+```python
+combat_styles = client.CombatStyle().list({})
 ```
 
 
@@ -399,7 +404,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-character = client.character
+character = client.Character()
 character.load({"id": "example_id"})
 
 # character.data_get() now returns the loaded character data

@@ -89,7 +89,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## CharacterEntity
 
 ```php
-$character = $client->character();
+$character = $client->Character();
 ```
 
 ### Fields
@@ -115,7 +115,7 @@ $character = $client->character();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->character()->list([]);
+$results = $client->Character()->list([]);
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -123,7 +123,7 @@ $results = $client->character()->list([]);
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->character()->load(["id" => "character_id"]);
+$result = $client->Character()->load(["id" => "character_id"]);
 ```
 
 ### Common Methods
@@ -159,7 +159,7 @@ Return the entity name.
 ## CombatStyleEntity
 
 ```php
-$combat_style = $client->combat_style();
+$combat_style = $client->CombatStyle();
 ```
 
 ### Fields
@@ -180,7 +180,7 @@ $combat_style = $client->combat_style();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->combat_style()->list([]);
+$results = $client->CombatStyle()->list([]);
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -188,7 +188,7 @@ $results = $client->combat_style()->list([]);
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->combat_style()->load(["id" => "combat_style_id"]);
+$result = $client->CombatStyle()->load(["id" => "combat_style_id"]);
 ```
 
 ### Common Methods

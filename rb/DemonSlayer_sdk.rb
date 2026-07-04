@@ -208,26 +208,14 @@ class DemonSlayerSDK
   end
 
 
-  # Idiomatic facade: client.character.list / client.character.load({ "id" => ... })
-  def character
-    require_relative 'entity/character_entity'
-    @character ||= CharacterEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.character instead.
+  # Canonical facade: client.Character.list / client.Character.load({ "id" => ... })
   def Character(data = nil)
     require_relative 'entity/character_entity'
     CharacterEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.combat_style.list / client.combat_style.load({ "id" => ... })
-  def combat_style
-    require_relative 'entity/combat_style_entity'
-    @combat_style ||= CombatStyleEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.combat_style instead.
+  # Canonical facade: client.CombatStyle.list / client.CombatStyle.load({ "id" => ... })
   def CombatStyle(data = nil)
     require_relative 'entity/combat_style_entity'
     CombatStyleEntity.new(self, data)

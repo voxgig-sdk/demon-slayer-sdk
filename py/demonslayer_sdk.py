@@ -220,41 +220,21 @@ class DemonSlayerSDK:
         }
 
 
-    @property
-    def character(self):
-        """Idiomatic facade: client.character.list() / client.character.load({"id": ...})."""
-        from entity.character_entity import CharacterEntity
-        cached = getattr(self, "_character", None)
-        if cached is None:
-            cached = CharacterEntity(self, None)
-            self._character = cached
-        return cached
-
-    def Character(self, data=None):
-        # Deprecated: use client.character instead.
+    def Character(self, data=None) -> "CharacterEntity":
+        """Entity factory: client.Character().list({}) / client.Character().load({"id": ...})."""
         from entity.character_entity import CharacterEntity
         return CharacterEntity(self, data)
 
 
-    @property
-    def combat_style(self):
-        """Idiomatic facade: client.combat_style.list() / client.combat_style.load({"id": ...})."""
-        from entity.combat_style_entity import CombatStyleEntity
-        cached = getattr(self, "_combat_style", None)
-        if cached is None:
-            cached = CombatStyleEntity(self, None)
-            self._combat_style = cached
-        return cached
-
-    def CombatStyle(self, data=None):
-        # Deprecated: use client.combat_style instead.
+    def CombatStyle(self, data=None) -> "CombatStyleEntity":
+        """Entity factory: client.CombatStyle().list({}) / client.CombatStyle().load({"id": ...})."""
         from entity.combat_style_entity import CombatStyleEntity
         return CombatStyleEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "DemonSlayerSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -274,3 +254,10 @@ class DemonSlayerSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.character_entity import CharacterEntity
+    from entity.combat_style_entity import CombatStyleEntity
