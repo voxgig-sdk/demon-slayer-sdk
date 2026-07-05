@@ -8,7 +8,7 @@ Complete API reference for the DemonSlayer Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'demon-slayer_sdk'
+require_relative 'DemonSlayer_sdk'
 
 client = DemonSlayerSDK.new(options)
 ```
@@ -97,26 +97,26 @@ character = client.Character
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ability` | ``$ARRAY`` | No |  |
-| `affiliation` | ``$STRING`` | No |  |
-| `age` | ``$INTEGER`` | No |  |
-| `combat_style` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `gender` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `image_url` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `quote` | ``$ARRAY`` | No |  |
-| `race` | ``$STRING`` | No |  |
+| `ability` | `Array` | No |  |
+| `affiliation` | `String` | No |  |
+| `age` | `Integer` | No |  |
+| `combat_style` | `String` | No |  |
+| `description` | `String` | No |  |
+| `gender` | `String` | No |  |
+| `id` | `String` | No |  |
+| `image_url` | `String` | No |  |
+| `name` | `String` | No |  |
+| `quote` | `Array` | No |  |
+| `race` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Character.list(nil)
+results = client.Character.list
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -167,21 +167,21 @@ combat_style = client.CombatStyle
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `form` | ``$ARRAY`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
-| `user` | ``$ARRAY`` | No |  |
+| `description` | `String` | No |  |
+| `form` | `Array` | No |  |
+| `id` | `String` | No |  |
+| `name` | `String` | No |  |
+| `type` | `String` | No |  |
+| `user` | `Array` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.CombatStyle.list(nil)
+results = client.CombatStyle.list
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`

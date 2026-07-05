@@ -66,7 +66,7 @@ CharacterLoadMatch = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Character#list (any subset of Character fields).
+# Request payload for Character#list.
 #
 # @!attribute [rw] ability
 #   @return [Array, nil]
@@ -153,7 +153,7 @@ CombatStyleLoadMatch = Struct.new(
   keyword_init: true
 )
 
-# Match filter for CombatStyle#list (any subset of CombatStyle fields).
+# Request payload for CombatStyle#list.
 #
 # @!attribute [rw] description
 #   @return [String, nil]

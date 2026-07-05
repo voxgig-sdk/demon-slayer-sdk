@@ -28,8 +28,7 @@ type CharacterLoadMatch struct {
 	Id string `json:"id"`
 }
 
-// CharacterListMatch mirrors the character fields as an all-optional match
-// filter (Go analog of Partial<Character>).
+// CharacterListMatch is the typed request payload for Character.ListTyped.
 type CharacterListMatch struct {
 	Ability *[]any `json:"ability,omitempty"`
 	Affiliation *string `json:"affiliation,omitempty"`
@@ -59,8 +58,7 @@ type CombatStyleLoadMatch struct {
 	Id string `json:"id"`
 }
 
-// CombatStyleListMatch mirrors the combat_style fields as an all-optional match
-// filter (Go analog of Partial<CombatStyle>).
+// CombatStyleListMatch is the typed request payload for CombatStyle.ListTyped.
 type CombatStyleListMatch struct {
 	Description *string `json:"description,omitempty"`
 	Form *[]any `json:"form,omitempty"`

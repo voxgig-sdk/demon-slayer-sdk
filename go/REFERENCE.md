@@ -101,17 +101,17 @@ character := client.Character(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ability` | ``$ARRAY`` | No |  |
-| `affiliation` | ``$STRING`` | No |  |
-| `age` | ``$INTEGER`` | No |  |
-| `combat_style` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `gender` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `image_url` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `quote` | ``$ARRAY`` | No |  |
-| `race` | ``$STRING`` | No |  |
+| `ability` | `[]any` | No |  |
+| `affiliation` | `string` | No |  |
+| `age` | `int` | No |  |
+| `combat_style` | `string` | No |  |
+| `description` | `string` | No |  |
+| `gender` | `string` | No |  |
+| `id` | `string` | No |  |
+| `image_url` | `string` | No |  |
+| `name` | `string` | No |  |
+| `quote` | `[]any` | No |  |
+| `race` | `string` | No |  |
 
 ### Operations
 
@@ -165,12 +165,12 @@ combat_style := client.CombatStyle(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `form` | ``$ARRAY`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
-| `user` | ``$ARRAY`` | No |  |
+| `description` | `string` | No |  |
+| `form` | `[]any` | No |  |
+| `id` | `string` | No |  |
+| `name` | `string` | No |  |
+| `type` | `string` | No |  |
+| `user` | `[]any` | No |  |
 
 ### Operations
 

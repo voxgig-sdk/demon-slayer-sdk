@@ -23,7 +23,19 @@ export interface CharacterLoadMatch {
   id: string
 }
 
-export type CharacterListMatch = Partial<Character>
+export interface CharacterListMatch {
+  ability?: any[]
+  affiliation?: string
+  age?: number
+  combat_style?: string
+  description?: string
+  gender?: string
+  id?: string
+  image_url?: string
+  name?: string
+  quote?: any[]
+  race?: string
+}
 
 export interface CombatStyle {
   description?: string
@@ -38,5 +50,12 @@ export interface CombatStyleLoadMatch {
   id: string
 }
 
-export type CombatStyleListMatch = Partial<CombatStyle>
+export interface CombatStyleListMatch {
+  description?: string
+  form?: any[]
+  id?: string
+  name?: string
+  type?: string
+  user?: any[]
+}
 

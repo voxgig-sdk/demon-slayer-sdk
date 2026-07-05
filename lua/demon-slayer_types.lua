@@ -23,6 +23,17 @@
 ---@field id string
 
 ---@class CharacterListMatch
+---@field ability? table
+---@field affiliation? string
+---@field age? number
+---@field combat_style? string
+---@field description? string
+---@field gender? string
+---@field id? string
+---@field image_url? string
+---@field name? string
+---@field quote? table
+---@field race? string
 
 ---@class CombatStyle
 ---@field description? string
@@ -36,6 +47,12 @@
 ---@field id string
 
 ---@class CombatStyleListMatch
+---@field description? string
+---@field form? table
+---@field id? string
+---@field name? string
+---@field type? string
+---@field user? table
 
 local M = {}
 

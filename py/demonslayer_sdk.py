@@ -221,13 +221,13 @@ class DemonSlayerSDK:
 
 
     def Character(self, data=None) -> "CharacterEntity":
-        """Entity factory: client.Character().list({}) / client.Character().load({"id": ...})."""
+        """Entity factory: client.Character().list() / client.Character().load({"id": ...})."""
         from entity.character_entity import CharacterEntity
         return CharacterEntity(self, data)
 
 
     def CombatStyle(self, data=None) -> "CombatStyleEntity":
-        """Entity factory: client.CombatStyle().list({}) / client.CombatStyle().load({"id": ...})."""
+        """Entity factory: client.CombatStyle().list() / client.CombatStyle().load({"id": ...})."""
         from entity.combat_style_entity import CombatStyleEntity
         return CombatStyleEntity(self, data)
 

@@ -8,7 +8,7 @@ Complete API reference for the DemonSlayer Python SDK.
 ### Constructor
 
 ```python
-from demon-slayer_sdk import DemonSlayerSDK
+from demonslayer_sdk import DemonSlayerSDK
 
 client = DemonSlayerSDK(options)
 ```
@@ -91,26 +91,26 @@ character = client.Character()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ability` | ``$ARRAY`` | No |  |
-| `affiliation` | ``$STRING`` | No |  |
-| `age` | ``$INTEGER`` | No |  |
-| `combat_style` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `gender` | ``$STRING`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `image_url` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `quote` | ``$ARRAY`` | No |  |
-| `race` | ``$STRING`` | No |  |
+| `ability` | `list` | No |  |
+| `affiliation` | `str` | No |  |
+| `age` | `int` | No |  |
+| `combat_style` | `str` | No |  |
+| `description` | `str` | No |  |
+| `gender` | `str` | No |  |
+| `id` | `str` | No |  |
+| `image_url` | `str` | No |  |
+| `name` | `str` | No |  |
+| `quote` | `list` | No |  |
+| `race` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Character().list({})
+results = client.Character().list()
 for character in results:
     print(character)
 ```
@@ -162,21 +162,21 @@ combat_style = client.CombatStyle()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | ``$STRING`` | No |  |
-| `form` | ``$ARRAY`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
-| `user` | ``$ARRAY`` | No |  |
+| `description` | `str` | No |  |
+| `form` | `list` | No |  |
+| `id` | `str` | No |  |
+| `name` | `str` | No |  |
+| `type` | `str` | No |  |
+| `user` | `list` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.CombatStyle().list({})
+results = client.CombatStyle().list()
 for combat_style in results:
     print(combat_style)
 ```

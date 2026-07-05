@@ -34,7 +34,7 @@ class CharacterLoadMatch
     public string $id;
 }
 
-/** Match filter for Character#list (any subset of Character fields). */
+/** Request payload for Character#list. */
 class CharacterListMatch
 {
     public ?array $ability = null;
@@ -67,7 +67,7 @@ class CombatStyleLoadMatch
     public string $id;
 }
 
-/** Match filter for CombatStyle#list (any subset of CombatStyle fields). */
+/** Request payload for CombatStyle#list. */
 class CombatStyleListMatch
 {
     public ?string $description = null;
