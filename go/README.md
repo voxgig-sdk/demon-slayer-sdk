@@ -60,7 +60,7 @@ func main() {
     }
 
     // Load a single character — the value is the loaded record.
-    character, err := client.Character(nil).Load(map[string]any{"id": "example"}, nil)
+    character, err := client.Character(nil).Load(map[string]any{"id": "example_id"}, nil)
     if err != nil {
         panic(err)
     }
@@ -356,7 +356,7 @@ fmt.Println(characters) // the array of records
 
 ### CombatStyle
 
-Create an instance: `combat_style := client.CombatStyle(nil)`
+Create an instance: `combatStyle := client.CombatStyle(nil)`
 
 #### Operations
 
@@ -379,21 +379,21 @@ Create an instance: `combat_style := client.CombatStyle(nil)`
 #### Example: Load
 
 ```go
-combat_style, err := client.CombatStyle(nil).Load(map[string]any{"id": "combat_style_id"}, nil)
+combatStyle, err := client.CombatStyle(nil).Load(map[string]any{"id": "combat_style_id"}, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(combat_style) // the loaded record
+fmt.Println(combatStyle) // the loaded record
 ```
 
 #### Example: List
 
 ```go
-combat_styles, err := client.CombatStyle(nil).List(nil, nil)
+combatStyles, err := client.CombatStyle(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(combat_styles) // the array of records
+fmt.Println(combatStyles) // the array of records
 ```
 
 

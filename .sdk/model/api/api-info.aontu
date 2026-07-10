@@ -16,9 +16,9 @@ main: {
           url: "https://www.demonslayer-api.com/api/v1"
         }
       ]
+      summary: "The Demon Slayer API provides developers with structured data related to the popular anime series, including character details, combat styles, and affiliations."
       title: "Demon Slayer API"
       version: "1.0.0"
+      website: "https://demonslayer-api.com"
     }
   }
-}
-

@@ -95,6 +95,7 @@ same parameters as `Direct()`.
 
 ```go
 character := client.Character(nil)
+fmt.Println(character.GetName()) // "character"
 ```
 
 ### Fields
@@ -121,6 +122,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.Character(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 #### `Load(reqmatch, ctrl map[string]any) (any, error)`
@@ -129,6 +134,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.Character(nil).Load(map[string]any{"id": "character_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -158,7 +167,8 @@ Return the entity name.
 ## CombatStyleEntity
 
 ```go
-combat_style := client.CombatStyle(nil)
+combatStyle := client.CombatStyle(nil)
+fmt.Println(combatStyle.GetName()) // "combat_style"
 ```
 
 ### Fields
@@ -180,6 +190,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.CombatStyle(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 #### `Load(reqmatch, ctrl map[string]any) (any, error)`
@@ -188,6 +202,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.CombatStyle(nil).Load(map[string]any{"id": "combat_style_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods

@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -537,14 +534,17 @@
           "url": "https://www.demonslayer-api.com/"
         },
         "description": "The Demon Slayer API provides developers with structured data related to the popular anime series, including character details, combat styles, and affiliations. It allows users to access information about characters, such as their age, gender, abilities, and memorable quotes, enhancing the experience for fans and developers alike.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://www.demonslayer-api.com/api/v1"
           }
         ],
+        "summary": "The Demon Slayer API provides developers with structured data related to the popular anime series, including character details, combat styles, and affiliations.",
         "title": "Demon Slayer API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://demonslayer-api.com"
       },
       "option": {},
       "target": {
@@ -597,6 +597,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -647,6 +650,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
