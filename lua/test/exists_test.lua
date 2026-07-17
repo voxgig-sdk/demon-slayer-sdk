@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- DemonSlayer SDK exists test
 
 local sdk = require("demon-slayer_sdk")
 
