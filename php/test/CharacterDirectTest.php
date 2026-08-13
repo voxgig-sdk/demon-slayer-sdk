@@ -121,11 +121,11 @@ function character_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "DEMONSLAYER_TEST_CHARACTER_ENTID" => [],
-        "DEMONSLAYER_TEST_LIVE" => "FALSE",
+        "DEMON_SLAYER_TEST_CHARACTER_ENTID" => [],
+        "DEMON_SLAYER_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["DEMONSLAYER_TEST_LIVE"] === "TRUE";
+    $live = $env["DEMON_SLAYER_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# DemonSlayer SDK exists test
 
 import pytest
 from demonslayer_sdk import DemonSlayerSDK

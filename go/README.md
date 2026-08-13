@@ -270,16 +270,16 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"ability"` |  |
+| `"abilities"` |  |
 | `"affiliation"` |  |
 | `"age"` |  |
-| `"combat_style"` |  |
+| `"combatStyle"` |  |
 | `"description"` |  |
 | `"gender"` |  |
 | `"id"` |  |
-| `"image_url"` |  |
+| `"imageUrl"` |  |
 | `"name"` |  |
-| `"quote"` |  |
+| `"quotes"` |  |
 | `"race"` |  |
 
 Operations: List, Load.
@@ -291,11 +291,11 @@ API path: `/characters`
 | Field | Description |
 | --- | --- |
 | `"description"` |  |
-| `"form"` |  |
+| `"forms"` |  |
 | `"id"` |  |
 | `"name"` |  |
 | `"type"` |  |
-| `"user"` |  |
+| `"users"` |  |
 
 Operations: List, Load.
 
@@ -321,16 +321,16 @@ Create an instance: `character := client.Character(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `ability` | `[]any` |  |
+| `abilities` | `[]any` |  |
 | `affiliation` | `string` |  |
 | `age` | `int` |  |
-| `combat_style` | `string` |  |
+| `combatStyle` | `string` |  |
 | `description` | `string` |  |
 | `gender` | `string` |  |
 | `id` | `string` |  |
-| `image_url` | `string` |  |
+| `imageUrl` | `string` |  |
 | `name` | `string` |  |
-| `quote` | `[]any` |  |
+| `quotes` | `[]any` |  |
 | `race` | `string` |  |
 
 #### Example: Load
@@ -370,11 +370,11 @@ Create an instance: `combatStyle := client.CombatStyle(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `description` | `string` |  |
-| `form` | `[]any` |  |
+| `forms` | `[]any` |  |
 | `id` | `string` |  |
 | `name` | `string` |  |
 | `type` | `string` |  |
-| `user` | `[]any` |  |
+| `users` | `[]any` |  |
 
 #### Example: Load
 

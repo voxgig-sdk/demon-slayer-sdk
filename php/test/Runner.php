@@ -43,8 +43,8 @@ class DemonSlayerTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('DEMONSLAYER_TEST_LIVE');
-        $override = self::getenv('DEMONSLAYER_TEST_OVERRIDE');
+        $live = self::getenv('DEMON_SLAYER_TEST_LIVE');
+        $override = self::getenv('DEMON_SLAYER_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class DemonSlayerTestRunner
             }
         }
 
-        $explain = self::getenv('DEMONSLAYER_TEST_EXPLAIN');
+        $explain = self::getenv('DEMON_SLAYER_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['DEMONSLAYER_TEST_EXPLAIN'] = $explain;
+            $m['DEMON_SLAYER_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

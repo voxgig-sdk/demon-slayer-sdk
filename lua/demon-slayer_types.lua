@@ -7,52 +7,52 @@
 -- edit by hand.
 
 ---@class Character
----@field ability? table
+---@field abilities? table
 ---@field affiliation? string
 ---@field age? number
----@field combat_style? string
+---@field combatStyle? string
 ---@field description? string
 ---@field gender? string
 ---@field id? string
----@field image_url? string
+---@field imageUrl? string
 ---@field name? string
----@field quote? table
+---@field quotes? table
 ---@field race? string
 
 ---@class CharacterLoadMatch
 ---@field id string
 
 ---@class CharacterListMatch
----@field ability? table
+---@field abilities? table
 ---@field affiliation? string
 ---@field age? number
----@field combat_style? string
+---@field combatStyle? string
 ---@field description? string
 ---@field gender? string
 ---@field id? string
----@field image_url? string
+---@field imageUrl? string
 ---@field name? string
----@field quote? table
+---@field quotes? table
 ---@field race? string
 
 ---@class CombatStyle
 ---@field description? string
----@field form? table
+---@field forms? table
 ---@field id? string
 ---@field name? string
 ---@field type? string
----@field user? table
+---@field users? table
 
 ---@class CombatStyleLoadMatch
 ---@field id string
 
 ---@class CombatStyleListMatch
 ---@field description? string
----@field form? table
+---@field forms? table
 ---@field id? string
 ---@field name? string
 ---@field type? string
----@field user? table
+---@field users? table
 
 local M = {}
 

@@ -35,7 +35,9 @@ const client = new DemonSlayerSDK()
 
 ### 2. List character records
 
-`list()` resolves to an array of Character objects — iterate it directly:
+`list()` resolves to an array of Character ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const characters = await client.Character().list()
@@ -133,7 +135,8 @@ Create a mock client for unit testing — no server required:
 const client = DemonSlayerSDK.test()
 
 const character = await client.Character().list()
-// character is a bare entity populated with mock response data
+// character is the entity, populated with mock response data
+// — call character.data() for the record itself
 console.log(character)
 ```
 
@@ -300,16 +303,16 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `ability` |  |
+| `abilities` |  |
 | `affiliation` |  |
 | `age` |  |
-| `combat_style` |  |
+| `combatStyle` |  |
 | `description` |  |
 | `gender` |  |
 | `id` |  |
-| `image_url` |  |
+| `imageUrl` |  |
 | `name` |  |
-| `quote` |  |
+| `quotes` |  |
 | `race` |  |
 
 Operations: list, load.
@@ -321,11 +324,11 @@ API path: `/characters`
 | Field | Description |
 | --- | --- |
 | `description` |  |
-| `form` |  |
+| `forms` |  |
 | `id` |  |
 | `name` |  |
 | `type` |  |
-| `user` |  |
+| `users` |  |
 
 Operations: list, load.
 
@@ -351,16 +354,16 @@ Create an instance: `const character = client.Character()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `ability` | `any[]` |  |
+| `abilities` | `any[]` |  |
 | `affiliation` | `string` |  |
 | `age` | `number` |  |
-| `combat_style` | `string` |  |
+| `combatStyle` | `string` |  |
 | `description` | `string` |  |
 | `gender` | `string` |  |
 | `id` | `string` |  |
-| `image_url` | `string` |  |
+| `imageUrl` | `string` |  |
 | `name` | `string` |  |
-| `quote` | `any[]` |  |
+| `quotes` | `any[]` |  |
 | `race` | `string` |  |
 
 #### Example: Load
@@ -392,11 +395,11 @@ Create an instance: `const combat_style = client.CombatStyle()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `description` | `string` |  |
-| `form` | `any[]` |  |
+| `forms` | `any[]` |  |
 | `id` | `string` |  |
 | `name` | `string` |  |
 | `type` | `string` |  |
-| `user` | `any[]` |  |
+| `users` | `any[]` |  |
 
 #### Example: Load
 

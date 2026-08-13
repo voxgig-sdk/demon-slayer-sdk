@@ -96,16 +96,16 @@ $character = $client->Character();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ability` | `array` | No |  |
+| `abilities` | `array` | No |  |
 | `affiliation` | `string` | No |  |
 | `age` | `int` | No |  |
-| `combat_style` | `string` | No |  |
+| `combatStyle` | `string` | No |  |
 | `description` | `string` | No |  |
 | `gender` | `string` | No |  |
 | `id` | `string` | No |  |
-| `image_url` | `string` | No |  |
+| `imageUrl` | `string` | No |  |
 | `name` | `string` | No |  |
-| `quote` | `array` | No |  |
+| `quotes` | `array` | No |  |
 | `race` | `string` | No |  |
 
 ### Operations
@@ -167,11 +167,11 @@ $combat_style = $client->CombatStyle();
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `description` | `string` | No |  |
-| `form` | `array` | No |  |
+| `forms` | `array` | No |  |
 | `id` | `string` | No |  |
 | `name` | `string` | No |  |
 | `type` | `string` | No |  |
-| `user` | `array` | No |  |
+| `users` | `array` | No |  |
 
 ### Operations
 

@@ -27,7 +27,7 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "ability",
+						"name": "abilities",
 						"req": false,
 						"type": "`$ARRAY`",
 						"index$": 0,
@@ -48,7 +48,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "combat_style",
+						"name": "combatStyle",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 3,
@@ -76,7 +76,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "image_url",
+						"name": "imageUrl",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 7,
@@ -90,7 +90,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "quote",
+						"name": "quotes",
 						"req": false,
 						"type": "`$ARRAY`",
 						"index$": 9,
@@ -147,6 +147,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/characters",
 								"parts": []any{
@@ -167,7 +168,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -188,6 +188,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/characters/{id}",
 								"parts": []any{
@@ -206,7 +207,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -224,7 +224,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "form",
+						"name": "forms",
 						"req": false,
 						"type": "`$ARRAY`",
 						"index$": 1,
@@ -252,7 +252,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "user",
+						"name": "users",
 						"req": false,
 						"type": "`$ARRAY`",
 						"index$": 5,
@@ -286,6 +286,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/combat-styles",
 								"parts": []any{
@@ -304,7 +305,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -325,6 +325,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/combat-styles/{id}",
 								"parts": []any{
@@ -343,7 +344,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{

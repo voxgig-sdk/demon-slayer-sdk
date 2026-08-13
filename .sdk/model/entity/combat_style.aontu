@@ -11,7 +11,7 @@ main: kit: entity: combat_style: {
       type: "`$STRING`"
     }
     {
-      name: "form"
+      name: "forms"
       req: false
       type: "`$ARRAY`"
     }
@@ -31,7 +31,7 @@ main: kit: entity: combat_style: {
       type: "`$STRING`"
     }
     {
-      name: "user"
+      name: "users"
       req: false
       type: "`$ARRAY`"
     }

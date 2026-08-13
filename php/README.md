@@ -38,7 +38,7 @@ try {
     // list() returns an array of Character records — iterate directly.
     $characters = $client->Character()->list();
     foreach ($characters as $item) {
-        echo $item["id"] . " " . $item["ability"] . "\n";
+        echo $item["id"] . " " . $item["abilities"] . "\n";
     }
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -49,7 +49,7 @@ try {
 
 ```php
 try {
-    // load() returns the bare Character record (throws on error).
+    // load() returns the ENTITY — call data_get() for the Character record (throws on error).
     $character = $client->Character()->load(["id" => "example_id"]);
     print_r($character);
 } catch (\Throwable $err) {
@@ -140,7 +140,8 @@ $client = DemonSlayerSDK::test([
     "entity" => ["character" => ["test01" => ["id" => "test01"]]],
 ]);
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $character = $client->Character()->list();
 print_r($character);
 ```
@@ -241,7 +242,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -263,16 +264,16 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `ability` |  |
+| `abilities` |  |
 | `affiliation` |  |
 | `age` |  |
-| `combat_style` |  |
+| `combatStyle` |  |
 | `description` |  |
 | `gender` |  |
 | `id` |  |
-| `image_url` |  |
+| `imageUrl` |  |
 | `name` |  |
-| `quote` |  |
+| `quotes` |  |
 | `race` |  |
 
 Operations: List, Load.
@@ -284,11 +285,11 @@ API path: `/characters`
 | Field | Description |
 | --- | --- |
 | `description` |  |
-| `form` |  |
+| `forms` |  |
 | `id` |  |
 | `name` |  |
 | `type` |  |
-| `user` |  |
+| `users` |  |
 
 Operations: List, Load.
 
@@ -314,22 +315,22 @@ Create an instance: `$character = $client->Character();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `ability` | `array` |  |
+| `abilities` | `array` |  |
 | `affiliation` | `string` |  |
 | `age` | `int` |  |
-| `combat_style` | `string` |  |
+| `combatStyle` | `string` |  |
 | `description` | `string` |  |
 | `gender` | `string` |  |
 | `id` | `string` |  |
-| `image_url` | `string` |  |
+| `imageUrl` | `string` |  |
 | `name` | `string` |  |
-| `quote` | `array` |  |
+| `quotes` | `array` |  |
 | `race` | `string` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare Character record (throws on error).
+// load() returns the ENTITY — call data_get() for the Character record (throws on error).
 $character = $client->Character()->load(["id" => "character_id"]);
 ```
 
@@ -357,16 +358,16 @@ Create an instance: `$combat_style = $client->CombatStyle();`
 | Field | Type | Description |
 | --- | --- | --- |
 | `description` | `string` |  |
-| `form` | `array` |  |
+| `forms` | `array` |  |
 | `id` | `string` |  |
 | `name` | `string` |  |
 | `type` | `string` |  |
-| `user` | `array` |  |
+| `users` | `array` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare CombatStyle record (throws on error).
+// load() returns the ENTITY — call data_get() for the CombatStyle record (throws on error).
 $combat_style = $client->CombatStyle()->load(["id" => "combat_style_id"]);
 ```
 

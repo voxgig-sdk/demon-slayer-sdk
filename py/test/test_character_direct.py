@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from demonslayer_sdk.utility.voxgig_struct import voxgig_struct as vs
 from demonslayer_sdk import DemonSlayerSDK
-from core import helpers
+from demonslayer_sdk.core import helpers
 from test import runner
 
 
@@ -105,11 +105,11 @@ def _character_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "DEMONSLAYER_TEST_CHARACTER_ENTID": {},
-        "DEMONSLAYER_TEST_LIVE": "FALSE",
+        "DEMON_SLAYER_TEST_CHARACTER_ENTID": {},
+        "DEMON_SLAYER_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("DEMONSLAYER_TEST_LIVE") == "TRUE"
+    live = env.get("DEMON_SLAYER_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

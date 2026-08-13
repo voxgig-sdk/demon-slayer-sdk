@@ -52,7 +52,7 @@ except Exception as err:
 
 ### 3. Load a character
 
-`load()` returns the bare record (a `dict`) and raises on error.
+`load()` returns the ENTITY — call data_get() for the record — and raises on error.
 
 ```python
 try:
@@ -136,7 +136,8 @@ Create a mock client for unit testing — no server required:
 ```python
 client = DemonSlayerSDK.test()
 
-# Entity ops return the bare record and raise on error.
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
 character = client.Character().list()
 # character contains the mock response record
 ```
@@ -234,7 +235,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -256,16 +257,16 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `ability` |  |
+| `abilities` |  |
 | `affiliation` |  |
 | `age` |  |
-| `combat_style` |  |
+| `combatStyle` |  |
 | `description` |  |
 | `gender` |  |
 | `id` |  |
-| `image_url` |  |
+| `imageUrl` |  |
 | `name` |  |
-| `quote` |  |
+| `quotes` |  |
 | `race` |  |
 
 Operations: List, Load.
@@ -277,11 +278,11 @@ API path: `/characters`
 | Field | Description |
 | --- | --- |
 | `description` |  |
-| `form` |  |
+| `forms` |  |
 | `id` |  |
 | `name` |  |
 | `type` |  |
-| `user` |  |
+| `users` |  |
 
 Operations: List, Load.
 
@@ -307,16 +308,16 @@ Create an instance: `character = client.Character()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `ability` | `list` |  |
+| `abilities` | `list` |  |
 | `affiliation` | `str` |  |
 | `age` | `int` |  |
-| `combat_style` | `str` |  |
+| `combatStyle` | `str` |  |
 | `description` | `str` |  |
 | `gender` | `str` |  |
 | `id` | `str` |  |
-| `image_url` | `str` |  |
+| `imageUrl` | `str` |  |
 | `name` | `str` |  |
-| `quote` | `list` |  |
+| `quotes` | `list` |  |
 | `race` | `str` |  |
 
 #### Example: Load
@@ -348,11 +349,11 @@ Create an instance: `combat_style = client.CombatStyle()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `description` | `str` |  |
-| `form` | `list` |  |
+| `forms` | `list` |  |
 | `id` | `str` |  |
 | `name` | `str` |  |
 | `type` | `str` |  |
-| `user` | `list` |  |
+| `users` | `list` |  |
 
 #### Example: Load
 

@@ -16,11 +16,11 @@
 import pytest
 
 from demonslayer_sdk import DemonSlayerSDK
-from core.error import DemonSlayerError
-from core.result import DemonSlayerResult
-from core.response import DemonSlayerResponse
-from core.spec import DemonSlayerSpec
-from feature.base_feature import DemonSlayerBaseFeature
+from demonslayer_sdk.core.error import DemonSlayerError
+from demonslayer_sdk.core.result import DemonSlayerResult
+from demonslayer_sdk.core.response import DemonSlayerResponse
+from demonslayer_sdk.core.spec import DemonSlayerSpec
+from demonslayer_sdk.feature.base_feature import DemonSlayerBaseFeature
 
 
 def _client():

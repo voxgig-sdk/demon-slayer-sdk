@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import DemonSlayerControl
-from core.error import DemonSlayerError
-from core.result import DemonSlayerResult
-from core.spec import DemonSlayerSpec
+from demonslayer_sdk.config import make_config
+from demonslayer_sdk.features import _make_feature
+from demonslayer_sdk.core.control import DemonSlayerControl
+from demonslayer_sdk.core.error import DemonSlayerError
+from demonslayer_sdk.core.result import DemonSlayerResult
+from demonslayer_sdk.core.spec import DemonSlayerSpec
 
 
 # True when this SDK was generated with the named feature.

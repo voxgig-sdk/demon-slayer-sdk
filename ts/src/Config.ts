@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'DemonSlayer',
   }
 
 
@@ -59,7 +59,7 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "ability",
+          "name": "abilities",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 0
@@ -80,7 +80,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "combat_style",
+          "name": "combatStyle",
           "req": false,
           "type": "`$STRING`",
           "index$": 3
@@ -108,7 +108,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "image_url",
+          "name": "imageUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 7
@@ -122,7 +122,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "quote",
+          "name": "quotes",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 9
@@ -179,6 +179,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/characters",
               "parts": [
@@ -220,6 +221,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/characters/{id}",
               "parts": [
@@ -256,7 +258,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "form",
+          "name": "forms",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 1
@@ -284,7 +286,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "user",
+          "name": "users",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 5
@@ -318,6 +320,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/combat-styles",
               "parts": [
@@ -357,6 +360,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/combat-styles/{id}",
               "parts": [

@@ -91,16 +91,16 @@ character = client.Character()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ability` | `list` | No |  |
+| `abilities` | `list` | No |  |
 | `affiliation` | `str` | No |  |
 | `age` | `int` | No |  |
-| `combat_style` | `str` | No |  |
+| `combatStyle` | `str` | No |  |
 | `description` | `str` | No |  |
 | `gender` | `str` | No |  |
 | `id` | `str` | No |  |
-| `image_url` | `str` | No |  |
+| `imageUrl` | `str` | No |  |
 | `name` | `str` | No |  |
-| `quote` | `list` | No |  |
+| `quotes` | `list` | No |  |
 | `race` | `str` | No |  |
 
 ### Operations
@@ -163,11 +163,11 @@ combat_style = client.CombatStyle()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `description` | `str` | No |  |
-| `form` | `list` | No |  |
+| `forms` | `list` | No |  |
 | `id` | `str` | No |  |
 | `name` | `str` | No |  |
 | `type` | `str` | No |  |
-| `user` | `list` | No |  |
+| `users` | `list` | No |  |
 
 ### Operations
 

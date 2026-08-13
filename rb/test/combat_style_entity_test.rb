@@ -62,7 +62,7 @@ class CombatStyleEntityTest < Minitest::Test
     # The basic flow consumes synthetic IDs from the fixture. In live mode
     # without an *_ENTID env override, those IDs hit the live API and 4xx.
     if setup[:synthetic_only]
-      skip "live entity test uses synthetic IDs from fixture — set DEMONSLAYER_TEST_COMBAT_STYLE_ENTID JSON to run live"
+      skip "live entity test uses synthetic IDs from fixture — set DEMON_SLAYER_TEST_COMBAT_STYLE_ENTID JSON to run live"
       return
     end
     client = setup[:client]
@@ -87,7 +87,7 @@ class CombatStyleEntityTest < Minitest::Test
       "id" => combat_style_ref01_data["id"],
     }
     combat_style_ref01_data_dt0_loaded = combat_style_ref01_ent.load(combat_style_ref01_match_dt0, nil)
-    combat_style_ref01_data_dt0_load_result = Helpers.to_map(combat_style_ref01_data_dt0_loaded)
+    combat_style_ref01_data_dt0_load_result = Helpers.to_map(combat_style_ref01_data_dt0_loaded.respond_to?(:data_get) ? combat_style_ref01_data_dt0_loaded.data_get : combat_style_ref01_data_dt0_loaded)
     assert !combat_style_ref01_data_dt0_load_result.nil?
     assert_equal combat_style_ref01_data_dt0_load_result["id"], combat_style_ref01_data["id"]
 
@@ -120,22 +120,22 @@ def combat_style_basic_setup(extra)
   # Detect ENTID env override before envOverride consumes it. When live
   # mode is on without a real override, the basic test runs against synthetic
   # IDs from the fixture and 4xx's. Surface this so the test can skip.
-  entid_env_raw = ENV["DEMONSLAYER_TEST_COMBAT_STYLE_ENTID"]
+  entid_env_raw = ENV["DEMON_SLAYER_TEST_COMBAT_STYLE_ENTID"]
   idmap_overridden = !entid_env_raw.nil? && entid_env_raw.strip.start_with?("{")
 
   env = Runner.env_override({
-    "DEMONSLAYER_TEST_COMBAT_STYLE_ENTID" => idmap,
-    "DEMONSLAYER_TEST_LIVE" => "FALSE",
-    "DEMONSLAYER_TEST_EXPLAIN" => "FALSE",
+    "DEMON_SLAYER_TEST_COMBAT_STYLE_ENTID" => idmap,
+    "DEMON_SLAYER_TEST_LIVE" => "FALSE",
+    "DEMON_SLAYER_TEST_EXPLAIN" => "FALSE",
   })
 
   idmap_resolved = Helpers.to_map(
-    env["DEMONSLAYER_TEST_COMBAT_STYLE_ENTID"])
+    env["DEMON_SLAYER_TEST_COMBAT_STYLE_ENTID"])
   if idmap_resolved.nil?
     idmap_resolved = Helpers.to_map(idmap)
   end
 
-  if env["DEMONSLAYER_TEST_LIVE"] == "TRUE"
+  if env["DEMON_SLAYER_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
       },
@@ -144,13 +144,13 @@ def combat_style_basic_setup(extra)
     client = DemonSlayerSDK.new(Helpers.to_map(merged_opts))
   end
 
-  live = env["DEMONSLAYER_TEST_LIVE"] == "TRUE"
+  live = env["DEMON_SLAYER_TEST_LIVE"] == "TRUE"
   {
     client: client,
     data: entity_data,
     idmap: idmap_resolved,
     env: env,
-    explain: env["DEMONSLAYER_TEST_EXPLAIN"] == "TRUE",
+    explain: env["DEMON_SLAYER_TEST_EXPLAIN"] == "TRUE",
     live: live,
     synthetic_only: live && !idmap_overridden,
     now: (Time.now.to_f * 1000).to_i,

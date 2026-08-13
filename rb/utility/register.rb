@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ DemonSlayerUtility.registrar = ->(u) {
   u.prepare_params = DemonSlayerUtilities::PrepareParams
   u.prepare_path = DemonSlayerUtilities::PreparePath
   u.prepare_query = DemonSlayerUtilities::PrepareQuery
+  u.graphql_body = DemonSlayerUtilities::GraphqlBody
+  u.graphql_errors = DemonSlayerUtilities::GraphqlErrors
   u.result_basic = DemonSlayerUtilities::ResultBasic
   u.result_body = DemonSlayerUtilities::ResultBody
   u.result_headers = DemonSlayerUtilities::ResultHeaders

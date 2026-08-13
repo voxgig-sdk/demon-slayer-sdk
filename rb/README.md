@@ -37,7 +37,7 @@ begin
   # list returns an Array of Character records — iterate directly.
   characters = client.Character.list
   characters.each do |item|
-    puts "#{item["id"]} #{item["ability"]}"
+    puts "#{item["id"]} #{item["abilities"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -48,7 +48,7 @@ end
 
 ```ruby
 begin
-  # load returns the bare Character record (raises on error).
+  # load returns the ENTITY — call data_get for the Character record (raises on error).
   character = client.Character.load({ "id" => "example_id" })
   puts character
 rescue => err
@@ -134,7 +134,8 @@ client = DemonSlayerSDK.test({
   "entity" => { "character" => { "test01" => { "id" => "test01" } } },
 })
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 character = client.Character.list()
 puts character
 ```
@@ -253,16 +254,16 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `ability` |  |
+| `abilities` |  |
 | `affiliation` |  |
 | `age` |  |
-| `combat_style` |  |
+| `combatStyle` |  |
 | `description` |  |
 | `gender` |  |
 | `id` |  |
-| `image_url` |  |
+| `imageUrl` |  |
 | `name` |  |
-| `quote` |  |
+| `quotes` |  |
 | `race` |  |
 
 Operations: List, Load.
@@ -274,11 +275,11 @@ API path: `/characters`
 | Field | Description |
 | --- | --- |
 | `description` |  |
-| `form` |  |
+| `forms` |  |
 | `id` |  |
 | `name` |  |
 | `type` |  |
-| `user` |  |
+| `users` |  |
 
 Operations: List, Load.
 
@@ -304,22 +305,22 @@ Create an instance: `character = client.Character`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `ability` | `Array` |  |
+| `abilities` | `Array` |  |
 | `affiliation` | `String` |  |
 | `age` | `Integer` |  |
-| `combat_style` | `String` |  |
+| `combatStyle` | `String` |  |
 | `description` | `String` |  |
 | `gender` | `String` |  |
 | `id` | `String` |  |
-| `image_url` | `String` |  |
+| `imageUrl` | `String` |  |
 | `name` | `String` |  |
-| `quote` | `Array` |  |
+| `quotes` | `Array` |  |
 | `race` | `String` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Character record (raises on error).
+# load returns the ENTITY — call data_get for the Character record (raises on error).
 character = client.Character.load({ "id" => "character_id" })
 ```
 
@@ -347,16 +348,16 @@ Create an instance: `combat_style = client.CombatStyle`
 | Field | Type | Description |
 | --- | --- | --- |
 | `description` | `String` |  |
-| `form` | `Array` |  |
+| `forms` | `Array` |  |
 | `id` | `String` |  |
 | `name` | `String` |  |
 | `type` | `String` |  |
-| `user` | `Array` |  |
+| `users` | `Array` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare CombatStyle record (raises on error).
+# load returns the ENTITY — call data_get for the CombatStyle record (raises on error).
 combat_style = client.CombatStyle.load({ "id" => "combat_style_id" })
 ```
 

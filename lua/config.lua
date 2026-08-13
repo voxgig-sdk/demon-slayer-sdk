@@ -27,7 +27,7 @@ local function make_config()
         ["fields"] = {
           {
             ["active"] = true,
-            ["name"] = "ability",
+            ["name"] = "abilities",
             ["req"] = false,
             ["type"] = "`$ARRAY`",
             ["index$"] = 0,
@@ -48,7 +48,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "combat_style",
+            ["name"] = "combatStyle",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 3,
@@ -76,7 +76,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "image_url",
+            ["name"] = "imageUrl",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 7,
@@ -90,7 +90,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "quote",
+            ["name"] = "quotes",
             ["req"] = false,
             ["type"] = "`$ARRAY`",
             ["index$"] = 9,
@@ -147,6 +147,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/characters",
                 ["parts"] = {
@@ -188,6 +189,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/characters/{id}",
                 ["parts"] = {
@@ -224,7 +226,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "form",
+            ["name"] = "forms",
             ["req"] = false,
             ["type"] = "`$ARRAY`",
             ["index$"] = 1,
@@ -252,7 +254,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "user",
+            ["name"] = "users",
             ["req"] = false,
             ["type"] = "`$ARRAY`",
             ["index$"] = 5,
@@ -286,6 +288,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/combat-styles",
                 ["parts"] = {
@@ -325,6 +328,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/combat-styles/{id}",
                 ["parts"] = {

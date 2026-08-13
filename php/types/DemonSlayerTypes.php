@@ -15,16 +15,16 @@ declare(strict_types=1);
 /** Character entity data model. */
 class Character
 {
-    public ?array $ability = null;
+    public ?array $abilities = null;
     public ?string $affiliation = null;
     public ?int $age = null;
-    public ?string $combat_style = null;
+    public ?string $combatStyle = null;
     public ?string $description = null;
     public ?string $gender = null;
     public ?string $id = null;
-    public ?string $image_url = null;
+    public ?string $imageUrl = null;
     public ?string $name = null;
-    public ?array $quote = null;
+    public ?array $quotes = null;
     public ?string $race = null;
 }
 
@@ -37,16 +37,16 @@ class CharacterLoadMatch
 /** Request payload for Character#list. */
 class CharacterListMatch
 {
-    public ?array $ability = null;
+    public ?array $abilities = null;
     public ?string $affiliation = null;
     public ?int $age = null;
-    public ?string $combat_style = null;
+    public ?string $combatStyle = null;
     public ?string $description = null;
     public ?string $gender = null;
     public ?string $id = null;
-    public ?string $image_url = null;
+    public ?string $imageUrl = null;
     public ?string $name = null;
-    public ?array $quote = null;
+    public ?array $quotes = null;
     public ?string $race = null;
 }
 
@@ -54,11 +54,11 @@ class CharacterListMatch
 class CombatStyle
 {
     public ?string $description = null;
-    public ?array $form = null;
+    public ?array $forms = null;
     public ?string $id = null;
     public ?string $name = null;
     public ?string $type = null;
-    public ?array $user = null;
+    public ?array $users = null;
 }
 
 /** Request payload for CombatStyle#load. */
@@ -71,10 +71,10 @@ class CombatStyleLoadMatch
 class CombatStyleListMatch
 {
     public ?string $description = null;
-    public ?array $form = null;
+    public ?array $forms = null;
     public ?string $id = null;
     public ?string $name = null;
     public ?string $type = null;
-    public ?array $user = null;
+    public ?array $users = null;
 }
 

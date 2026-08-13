@@ -23,8 +23,8 @@ module DemonSlayerTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("DEMONSLAYER_TEST_LIVE")
-    override = getenv("DEMONSLAYER_TEST_OVERRIDE")
+    live = getenv("DEMON_SLAYER_TEST_LIVE")
+    override = getenv("DEMON_SLAYER_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module DemonSlayerTestRunner
       end
     end
 
-    explain = getenv("DEMONSLAYER_TEST_EXPLAIN")
-    m["DEMONSLAYER_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("DEMON_SLAYER_TEST_EXPLAIN")
+    m["DEMON_SLAYER_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

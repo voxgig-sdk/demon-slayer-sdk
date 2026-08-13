@@ -97,16 +97,16 @@ character = client.Character
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ability` | `Array` | No |  |
+| `abilities` | `Array` | No |  |
 | `affiliation` | `String` | No |  |
 | `age` | `Integer` | No |  |
-| `combat_style` | `String` | No |  |
+| `combatStyle` | `String` | No |  |
 | `description` | `String` | No |  |
 | `gender` | `String` | No |  |
 | `id` | `String` | No |  |
-| `image_url` | `String` | No |  |
+| `imageUrl` | `String` | No |  |
 | `name` | `String` | No |  |
-| `quote` | `Array` | No |  |
+| `quotes` | `Array` | No |  |
 | `race` | `String` | No |  |
 
 ### Operations
@@ -168,11 +168,11 @@ combat_style = client.CombatStyle
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `description` | `String` | No |  |
-| `form` | `Array` | No |  |
+| `forms` | `Array` | No |  |
 | `id` | `String` | No |  |
 | `name` | `String` | No |  |
 | `type` | `String` | No |  |
-| `user` | `Array` | No |  |
+| `users` | `Array` | No |  |
 
 ### Operations
 

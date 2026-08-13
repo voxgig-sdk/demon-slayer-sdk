@@ -94,16 +94,16 @@ local character = client:Character(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ability` | `table` | No |  |
+| `abilities` | `table` | No |  |
 | `affiliation` | `string` | No |  |
 | `age` | `number` | No |  |
-| `combat_style` | `string` | No |  |
+| `combatStyle` | `string` | No |  |
 | `description` | `string` | No |  |
 | `gender` | `string` | No |  |
 | `id` | `string` | No |  |
-| `image_url` | `string` | No |  |
+| `imageUrl` | `string` | No |  |
 | `name` | `string` | No |  |
-| `quote` | `table` | No |  |
+| `quotes` | `table` | No |  |
 | `race` | `string` | No |  |
 
 ### Operations
@@ -165,11 +165,11 @@ local combat_style = client:CombatStyle(nil)
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `description` | `string` | No |  |
-| `form` | `table` | No |  |
+| `forms` | `table` | No |  |
 | `id` | `string` | No |  |
 | `name` | `string` | No |  |
 | `type` | `string` | No |  |
-| `user` | `table` | No |  |
+| `users` | `table` | No |  |
 
 ### Operations
 

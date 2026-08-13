@@ -242,16 +242,16 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `ability` |  |
+| `abilities` |  |
 | `affiliation` |  |
 | `age` |  |
-| `combat_style` |  |
+| `combatStyle` |  |
 | `description` |  |
 | `gender` |  |
 | `id` |  |
-| `image_url` |  |
+| `imageUrl` |  |
 | `name` |  |
-| `quote` |  |
+| `quotes` |  |
 | `race` |  |
 
 Operations: List, Load.
@@ -263,11 +263,11 @@ API path: `/characters`
 | Field | Description |
 | --- | --- |
 | `description` |  |
-| `form` |  |
+| `forms` |  |
 | `id` |  |
 | `name` |  |
 | `type` |  |
-| `user` |  |
+| `users` |  |
 
 Operations: List, Load.
 
@@ -293,16 +293,16 @@ Create an instance: `local character = client:Character(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `ability` | `table` |  |
+| `abilities` | `table` |  |
 | `affiliation` | `string` |  |
 | `age` | `number` |  |
-| `combat_style` | `string` |  |
+| `combatStyle` | `string` |  |
 | `description` | `string` |  |
 | `gender` | `string` |  |
 | `id` | `string` |  |
-| `image_url` | `string` |  |
+| `imageUrl` | `string` |  |
 | `name` | `string` |  |
-| `quote` | `table` |  |
+| `quotes` | `table` |  |
 | `race` | `string` |  |
 
 #### Example: Load
@@ -334,11 +334,11 @@ Create an instance: `local combat_style = client:CombatStyle(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `description` | `string` |  |
-| `form` | `table` |  |
+| `forms` | `table` |  |
 | `id` | `string` |  |
 | `name` | `string` |  |
 | `type` | `string` |  |
-| `user` | `table` |  |
+| `users` | `table` |  |
 
 #### Example: Load
 

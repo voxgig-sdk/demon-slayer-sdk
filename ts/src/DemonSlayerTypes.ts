@@ -6,16 +6,16 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface Character {
-  ability?: any[]
+  abilities?: any[]
   affiliation?: string
   age?: number
-  combat_style?: string
+  combatStyle?: string
   description?: string
   gender?: string
   id?: string
-  image_url?: string
+  imageUrl?: string
   name?: string
-  quote?: any[]
+  quotes?: any[]
   race?: string
 }
 
@@ -24,26 +24,26 @@ export interface CharacterLoadMatch {
 }
 
 export interface CharacterListMatch {
-  ability?: any[]
+  abilities?: any[]
   affiliation?: string
   age?: number
-  combat_style?: string
+  combatStyle?: string
   description?: string
   gender?: string
   id?: string
-  image_url?: string
+  imageUrl?: string
   name?: string
-  quote?: any[]
+  quotes?: any[]
   race?: string
 }
 
 export interface CombatStyle {
   description?: string
-  form?: any[]
+  forms?: any[]
   id?: string
   name?: string
   type?: string
-  user?: any[]
+  users?: any[]
 }
 
 export interface CombatStyleLoadMatch {
@@ -52,10 +52,10 @@ export interface CombatStyleLoadMatch {
 
 export interface CombatStyleListMatch {
   description?: string
-  form?: any[]
+  forms?: any[]
   id?: string
   name?: string
   type?: string
-  user?: any[]
+  users?: any[]
 }
 

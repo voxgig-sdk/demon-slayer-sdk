@@ -2,42 +2,42 @@
   "existing": {
     "character": {
       "CHARACTER00": {
-        "ability": [],
+        "abilities": [],
         "affiliation": "s6f",
         "age": "s70",
-        "combat_style": "s71",
+        "combatStyle": "s71",
         "description": "s72",
         "gender": "s73",
         "id": "CHARACTER00",
-        "image_url": "s75",
+        "imageUrl": "s75",
         "name": "s76",
-        "quote": [],
+        "quotes": [],
         "race": "s78"
       },
       "CHARACTER01": {
-        "ability": [],
+        "abilities": [],
         "affiliation": "sdd",
         "age": "sde",
-        "combat_style": "sdf",
+        "combatStyle": "sdf",
         "description": "se0",
         "gender": "se1",
         "id": "CHARACTER01",
-        "image_url": "se3",
+        "imageUrl": "se3",
         "name": "se4",
-        "quote": [],
+        "quotes": [],
         "race": "se6"
       },
       "CHARACTER02": {
-        "ability": [],
+        "abilities": [],
         "affiliation": "s14b",
         "age": "s14c",
-        "combat_style": "s14d",
+        "combatStyle": "s14d",
         "description": "s14e",
         "gender": "s14f",
         "id": "CHARACTER02",
-        "image_url": "s151",
+        "imageUrl": "s151",
         "name": "s152",
-        "quote": [],
+        "quotes": [],
         "race": "s154"
       }
     }
@@ -45,15 +45,15 @@
   "new": {
     "character": {
       "character_ref01": {
-        "ability": [],
+        "abilities": [],
         "affiliation": "s1b9",
         "age": "s1ba",
-        "combat_style": "s1bb",
+        "combatStyle": "s1bb",
         "description": "s1bc",
         "gender": "s1bd",
-        "image_url": "s1bf",
+        "imageUrl": "s1bf",
         "name": "s1c0",
-        "quote": [],
+        "quotes": [],
         "race": "s1c2"
       }
     }

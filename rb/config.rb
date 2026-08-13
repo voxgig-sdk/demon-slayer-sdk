@@ -28,7 +28,7 @@ module DemonSlayerConfig
           "fields" => [
             {
               "active" => true,
-              "name" => "ability",
+              "name" => "abilities",
               "req" => false,
               "type" => "`$ARRAY`",
               "index$" => 0,
@@ -49,7 +49,7 @@ module DemonSlayerConfig
             },
             {
               "active" => true,
-              "name" => "combat_style",
+              "name" => "combatStyle",
               "req" => false,
               "type" => "`$STRING`",
               "index$" => 3,
@@ -77,7 +77,7 @@ module DemonSlayerConfig
             },
             {
               "active" => true,
-              "name" => "image_url",
+              "name" => "imageUrl",
               "req" => false,
               "type" => "`$STRING`",
               "index$" => 7,
@@ -91,7 +91,7 @@ module DemonSlayerConfig
             },
             {
               "active" => true,
-              "name" => "quote",
+              "name" => "quotes",
               "req" => false,
               "type" => "`$ARRAY`",
               "index$" => 9,
@@ -148,6 +148,7 @@ module DemonSlayerConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/characters",
                   "parts" => [
@@ -189,6 +190,7 @@ module DemonSlayerConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/characters/{id}",
                   "parts" => [
@@ -225,7 +227,7 @@ module DemonSlayerConfig
             },
             {
               "active" => true,
-              "name" => "form",
+              "name" => "forms",
               "req" => false,
               "type" => "`$ARRAY`",
               "index$" => 1,
@@ -253,7 +255,7 @@ module DemonSlayerConfig
             },
             {
               "active" => true,
-              "name" => "user",
+              "name" => "users",
               "req" => false,
               "type" => "`$ARRAY`",
               "index$" => 5,
@@ -287,6 +289,7 @@ module DemonSlayerConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/combat-styles",
                   "parts" => [
@@ -326,6 +329,7 @@ module DemonSlayerConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/combat-styles/{id}",
                   "parts" => [

@@ -114,11 +114,11 @@ def combat_style_direct_setup(mockres)
   calls = []
 
   env = Runner.env_override({
-    "DEMONSLAYER_TEST_COMBAT_STYLE_ENTID" => {},
-    "DEMONSLAYER_TEST_LIVE" => "FALSE",
+    "DEMON_SLAYER_TEST_COMBAT_STYLE_ENTID" => {},
+    "DEMON_SLAYER_TEST_LIVE" => "FALSE",
   })
 
-  live = env["DEMONSLAYER_TEST_LIVE"] == "TRUE"
+  live = env["DEMON_SLAYER_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {

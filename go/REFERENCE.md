@@ -102,16 +102,16 @@ fmt.Println(character.GetName()) // "character"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `ability` | `[]any` | No |  |
+| `abilities` | `[]any` | No |  |
 | `affiliation` | `string` | No |  |
 | `age` | `int` | No |  |
-| `combat_style` | `string` | No |  |
+| `combatStyle` | `string` | No |  |
 | `description` | `string` | No |  |
 | `gender` | `string` | No |  |
 | `id` | `string` | No |  |
-| `image_url` | `string` | No |  |
+| `imageUrl` | `string` | No |  |
 | `name` | `string` | No |  |
-| `quote` | `[]any` | No |  |
+| `quotes` | `[]any` | No |  |
 | `race` | `string` | No |  |
 
 ### Operations
@@ -176,11 +176,11 @@ fmt.Println(combatStyle.GetName()) // "combat_style"
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `description` | `string` | No |  |
-| `form` | `[]any` | No |  |
+| `forms` | `[]any` | No |  |
 | `id` | `string` | No |  |
 | `name` | `string` | No |  |
 | `type` | `string` | No |  |
-| `user` | `[]any` | No |  |
+| `users` | `[]any` | No |  |
 
 ### Operations
 
