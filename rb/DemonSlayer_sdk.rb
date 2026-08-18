@@ -28,7 +28,7 @@ class DemonSlayerSDK
     utility = DemonSlayerUtility.new
     @_utility = utility
 
-    config = DemonSlayerConfig.make_config
+    config = DemonSlayerConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

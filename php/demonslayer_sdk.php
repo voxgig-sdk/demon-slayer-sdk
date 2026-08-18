@@ -40,7 +40,7 @@ class DemonSlayerSDK
         $utility = new DemonSlayerUtility();
         $this->_utility = $utility;
 
-        $config = DemonSlayerConfig::make_config();
+        $config = DemonSlayerConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,
