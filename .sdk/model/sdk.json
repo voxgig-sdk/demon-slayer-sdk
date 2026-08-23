@@ -36,66 +36,77 @@
               "active": true,
               "name": "abilities",
               "req": false,
+              "short": "List of abilities and techniques the character possesses",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "affiliation",
               "req": false,
+              "short": "Organization or group the character belongs to",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "age",
               "req": false,
+              "short": "Age of the character",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "combatStyle",
               "req": false,
+              "short": "Primary combat style or breathing technique used by the character",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "description",
               "req": false,
+              "short": "Detailed description of the character",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "gender",
               "req": false,
+              "short": "Gender of the character",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique identifier for the character",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "imageUrl",
               "req": false,
+              "short": "URL to the character's image",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": false,
+              "short": "Name of the character",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "quotes",
               "req": false,
+              "short": "Memorable quotes from the character",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "race",
               "req": false,
+              "short": "Race of the character (Human, Demon, etc.)",
               "type": "`$STRING`"
             }
           ],
@@ -220,36 +231,42 @@
               "active": true,
               "name": "description",
               "req": false,
+              "short": "Detailed description of the combat style",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "forms",
               "req": false,
+              "short": "List of forms or techniques within this combat style",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique identifier for the combat style",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": false,
+              "short": "Name of the combat style",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "type",
               "req": false,
+              "short": "Type of combat style (Breathing Technique, Blood Demon Art, etc.)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "users",
               "req": false,
+              "short": "Characters who use this combat style",
               "type": "`$ARRAY`"
             }
           ],

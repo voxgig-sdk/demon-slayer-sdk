@@ -8,56 +8,67 @@ main: kit: entity: character: {
     {
       name: "abilities"
       req: false
+      short: "List of abilities and techniques the character possesses"
       type: "`$ARRAY`"
     }
     {
       name: "affiliation"
       req: false
+      short: "Organization or group the character belongs to"
       type: "`$STRING`"
     }
     {
       name: "age"
       req: false
+      short: "Age of the character"
       type: "`$INTEGER`"
     }
     {
       name: "combatStyle"
       req: false
+      short: "Primary combat style or breathing technique used by the character"
       type: "`$STRING`"
     }
     {
       name: "description"
       req: false
+      short: "Detailed description of the character"
       type: "`$STRING`"
     }
     {
       name: "gender"
       req: false
+      short: "Gender of the character"
       type: "`$STRING`"
     }
     {
       name: "id"
       req: false
+      short: "Unique identifier for the character"
       type: "`$STRING`"
     }
     {
       name: "imageUrl"
       req: false
+      short: "URL to the character's image"
       type: "`$STRING`"
     }
     {
       name: "name"
       req: false
+      short: "Name of the character"
       type: "`$STRING`"
     }
     {
       name: "quotes"
       req: false
+      short: "Memorable quotes from the character"
       type: "`$ARRAY`"
     }
     {
       name: "race"
       req: false
+      short: "Race of the character (Human, Demon, etc.)"
       type: "`$STRING`"
     }
   ]

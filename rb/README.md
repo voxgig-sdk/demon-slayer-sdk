@@ -254,17 +254,17 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `abilities` |  |
-| `affiliation` |  |
-| `age` |  |
-| `combatStyle` |  |
-| `description` |  |
-| `gender` |  |
-| `id` |  |
-| `imageUrl` |  |
-| `name` |  |
-| `quotes` |  |
-| `race` |  |
+| `abilities` | List of abilities and techniques the character possesses |
+| `affiliation` | Organization or group the character belongs to |
+| `age` | Age of the character |
+| `combatStyle` | Primary combat style or breathing technique used by the character |
+| `description` | Detailed description of the character |
+| `gender` | Gender of the character |
+| `id` | Unique identifier for the character |
+| `imageUrl` | URL to the character's image |
+| `name` | Name of the character |
+| `quotes` | Memorable quotes from the character |
+| `race` | Race of the character (Human, Demon, etc.) |
 
 Operations: List, Load.
 
@@ -274,12 +274,12 @@ API path: `/characters`
 
 | Field | Description |
 | --- | --- |
-| `description` |  |
-| `forms` |  |
-| `id` |  |
-| `name` |  |
-| `type` |  |
-| `users` |  |
+| `description` | Detailed description of the combat style |
+| `forms` | List of forms or techniques within this combat style |
+| `id` | Unique identifier for the combat style |
+| `name` | Name of the combat style |
+| `type` | Type of combat style (Breathing Technique, Blood Demon Art, etc.) |
+| `users` | Characters who use this combat style |
 
 Operations: List, Load.
 
@@ -305,17 +305,17 @@ Create an instance: `character = client.Character`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `abilities` | `Array` |  |
-| `affiliation` | `String` |  |
-| `age` | `Integer` |  |
-| `combatStyle` | `String` |  |
-| `description` | `String` |  |
-| `gender` | `String` |  |
-| `id` | `String` |  |
-| `imageUrl` | `String` |  |
-| `name` | `String` |  |
-| `quotes` | `Array` |  |
-| `race` | `String` |  |
+| `abilities` | `Array` | List of abilities and techniques the character possesses |
+| `affiliation` | `String` | Organization or group the character belongs to |
+| `age` | `Integer` | Age of the character |
+| `combatStyle` | `String` | Primary combat style or breathing technique used by the character |
+| `description` | `String` | Detailed description of the character |
+| `gender` | `String` | Gender of the character |
+| `id` | `String` | Unique identifier for the character |
+| `imageUrl` | `String` | URL to the character's image |
+| `name` | `String` | Name of the character |
+| `quotes` | `Array` | Memorable quotes from the character |
+| `race` | `String` | Race of the character (Human, Demon, etc.) |
 
 #### Example: Load
 
@@ -347,12 +347,12 @@ Create an instance: `combat_style = client.CombatStyle`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `String` |  |
-| `forms` | `Array` |  |
-| `id` | `String` |  |
-| `name` | `String` |  |
-| `type` | `String` |  |
-| `users` | `Array` |  |
+| `description` | `String` | Detailed description of the combat style |
+| `forms` | `Array` | List of forms or techniques within this combat style |
+| `id` | `String` | Unique identifier for the combat style |
+| `name` | `String` | Name of the combat style |
+| `type` | `String` | Type of combat style (Breathing Technique, Blood Demon Art, etc.) |
+| `users` | `Array` | Characters who use this combat style |
 
 #### Example: Load
 

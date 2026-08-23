@@ -6,7 +6,7 @@ The Golang SDK for the DemonSlayer API — an entity-oriented client using stand
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Character(nil)` — each with the same small set of operations (`List`, `Load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -270,17 +270,17 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"abilities"` |  |
-| `"affiliation"` |  |
-| `"age"` |  |
-| `"combatStyle"` |  |
-| `"description"` |  |
-| `"gender"` |  |
-| `"id"` |  |
-| `"imageUrl"` |  |
-| `"name"` |  |
-| `"quotes"` |  |
-| `"race"` |  |
+| `"abilities"` | List of abilities and techniques the character possesses |
+| `"affiliation"` | Organization or group the character belongs to |
+| `"age"` | Age of the character |
+| `"combatStyle"` | Primary combat style or breathing technique used by the character |
+| `"description"` | Detailed description of the character |
+| `"gender"` | Gender of the character |
+| `"id"` | Unique identifier for the character |
+| `"imageUrl"` | URL to the character's image |
+| `"name"` | Name of the character |
+| `"quotes"` | Memorable quotes from the character |
+| `"race"` | Race of the character (Human, Demon, etc.) |
 
 Operations: List, Load.
 
@@ -290,12 +290,12 @@ API path: `/characters`
 
 | Field | Description |
 | --- | --- |
-| `"description"` |  |
-| `"forms"` |  |
-| `"id"` |  |
-| `"name"` |  |
-| `"type"` |  |
-| `"users"` |  |
+| `"description"` | Detailed description of the combat style |
+| `"forms"` | List of forms or techniques within this combat style |
+| `"id"` | Unique identifier for the combat style |
+| `"name"` | Name of the combat style |
+| `"type"` | Type of combat style (Breathing Technique, Blood Demon Art, etc.) |
+| `"users"` | Characters who use this combat style |
 
 Operations: List, Load.
 
@@ -321,17 +321,17 @@ Create an instance: `character := client.Character(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `abilities` | `[]any` |  |
-| `affiliation` | `string` |  |
-| `age` | `int` |  |
-| `combatStyle` | `string` |  |
-| `description` | `string` |  |
-| `gender` | `string` |  |
-| `id` | `string` |  |
-| `imageUrl` | `string` |  |
-| `name` | `string` |  |
-| `quotes` | `[]any` |  |
-| `race` | `string` |  |
+| `abilities` | `[]any` | List of abilities and techniques the character possesses |
+| `affiliation` | `string` | Organization or group the character belongs to |
+| `age` | `int` | Age of the character |
+| `combatStyle` | `string` | Primary combat style or breathing technique used by the character |
+| `description` | `string` | Detailed description of the character |
+| `gender` | `string` | Gender of the character |
+| `id` | `string` | Unique identifier for the character |
+| `imageUrl` | `string` | URL to the character's image |
+| `name` | `string` | Name of the character |
+| `quotes` | `[]any` | Memorable quotes from the character |
+| `race` | `string` | Race of the character (Human, Demon, etc.) |
 
 #### Example: Load
 
@@ -369,12 +369,12 @@ Create an instance: `combatStyle := client.CombatStyle(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `description` | `string` |  |
-| `forms` | `[]any` |  |
-| `id` | `string` |  |
-| `name` | `string` |  |
-| `type` | `string` |  |
-| `users` | `[]any` |  |
+| `description` | `string` | Detailed description of the combat style |
+| `forms` | `[]any` | List of forms or techniques within this combat style |
+| `id` | `string` | Unique identifier for the combat style |
+| `name` | `string` | Name of the combat style |
+| `type` | `string` | Type of combat style (Breathing Technique, Blood Demon Art, etc.) |
+| `users` | `[]any` | Characters who use this combat style |
 
 #### Example: Load
 

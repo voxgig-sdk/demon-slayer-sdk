@@ -97,17 +97,17 @@ character = client.Character
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `abilities` | `Array` | No |  |
-| `affiliation` | `String` | No |  |
-| `age` | `Integer` | No |  |
-| `combatStyle` | `String` | No |  |
-| `description` | `String` | No |  |
-| `gender` | `String` | No |  |
-| `id` | `String` | No |  |
-| `imageUrl` | `String` | No |  |
-| `name` | `String` | No |  |
-| `quotes` | `Array` | No |  |
-| `race` | `String` | No |  |
+| `abilities` | `Array` | No | List of abilities and techniques the character possesses |
+| `affiliation` | `String` | No | Organization or group the character belongs to |
+| `age` | `Integer` | No | Age of the character |
+| `combatStyle` | `String` | No | Primary combat style or breathing technique used by the character |
+| `description` | `String` | No | Detailed description of the character |
+| `gender` | `String` | No | Gender of the character |
+| `id` | `String` | No | Unique identifier for the character |
+| `imageUrl` | `String` | No | URL to the character's image |
+| `name` | `String` | No | Name of the character |
+| `quotes` | `Array` | No | Memorable quotes from the character |
+| `race` | `String` | No | Race of the character (Human, Demon, etc.) |
 
 ### Operations
 
@@ -167,12 +167,12 @@ combat_style = client.CombatStyle
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `String` | No |  |
-| `forms` | `Array` | No |  |
-| `id` | `String` | No |  |
-| `name` | `String` | No |  |
-| `type` | `String` | No |  |
-| `users` | `Array` | No |  |
+| `description` | `String` | No | Detailed description of the combat style |
+| `forms` | `Array` | No | List of forms or techniques within this combat style |
+| `id` | `String` | No | Unique identifier for the combat style |
+| `name` | `String` | No | Name of the combat style |
+| `type` | `String` | No | Type of combat style (Breathing Technique, Blood Demon Art, etc.) |
+| `users` | `Array` | No | Characters who use this combat style |
 
 ### Operations
 

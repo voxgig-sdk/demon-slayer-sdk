@@ -91,17 +91,17 @@ character = client.Character()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `abilities` | `list` | No |  |
-| `affiliation` | `str` | No |  |
-| `age` | `int` | No |  |
-| `combatStyle` | `str` | No |  |
-| `description` | `str` | No |  |
-| `gender` | `str` | No |  |
-| `id` | `str` | No |  |
-| `imageUrl` | `str` | No |  |
-| `name` | `str` | No |  |
-| `quotes` | `list` | No |  |
-| `race` | `str` | No |  |
+| `abilities` | `list` | No | List of abilities and techniques the character possesses |
+| `affiliation` | `str` | No | Organization or group the character belongs to |
+| `age` | `int` | No | Age of the character |
+| `combatStyle` | `str` | No | Primary combat style or breathing technique used by the character |
+| `description` | `str` | No | Detailed description of the character |
+| `gender` | `str` | No | Gender of the character |
+| `id` | `str` | No | Unique identifier for the character |
+| `imageUrl` | `str` | No | URL to the character's image |
+| `name` | `str` | No | Name of the character |
+| `quotes` | `list` | No | Memorable quotes from the character |
+| `race` | `str` | No | Race of the character (Human, Demon, etc.) |
 
 ### Operations
 
@@ -162,12 +162,12 @@ combat_style = client.CombatStyle()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `str` | No |  |
-| `forms` | `list` | No |  |
-| `id` | `str` | No |  |
-| `name` | `str` | No |  |
-| `type` | `str` | No |  |
-| `users` | `list` | No |  |
+| `description` | `str` | No | Detailed description of the combat style |
+| `forms` | `list` | No | List of forms or techniques within this combat style |
+| `id` | `str` | No | Unique identifier for the combat style |
+| `name` | `str` | No | Name of the combat style |
+| `type` | `str` | No | Type of combat style (Breathing Technique, Blood Demon Art, etc.) |
+| `users` | `list` | No | Characters who use this combat style |
 
 ### Operations
 

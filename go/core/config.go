@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "DemonSlayer",
+			"slug": "demon-slayer",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -34,46 +37,57 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "abilities",
+						"short": "List of abilities and techniques the character possesses",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "affiliation",
+						"short": "Organization or group the character belongs to",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "age",
+						"short": "Age of the character",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "combatStyle",
+						"short": "Primary combat style or breathing technique used by the character",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "description",
+						"short": "Detailed description of the character",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "gender",
+						"short": "Gender of the character",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique identifier for the character",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "imageUrl",
+						"short": "URL to the character's image",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "name",
+						"short": "Name of the character",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "quotes",
+						"short": "Memorable quotes from the character",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "race",
+						"short": "Race of the character (Human, Demon, etc.)",
 						"type": "`$STRING`",
 					},
 				},
@@ -177,26 +191,32 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "description",
+						"short": "Detailed description of the combat style",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "forms",
+						"short": "List of forms or techniques within this combat style",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique identifier for the combat style",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "name",
+						"short": "Name of the combat style",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "type",
+						"short": "Type of combat style (Breathing Technique, Blood Demon Art, etc.)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "users",
+						"short": "Characters who use this combat style",
 						"type": "`$ARRAY`",
 					},
 				},

@@ -96,17 +96,17 @@ $character = $client->Character();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `abilities` | `array` | No |  |
-| `affiliation` | `string` | No |  |
-| `age` | `int` | No |  |
-| `combatStyle` | `string` | No |  |
-| `description` | `string` | No |  |
-| `gender` | `string` | No |  |
-| `id` | `string` | No |  |
-| `imageUrl` | `string` | No |  |
-| `name` | `string` | No |  |
-| `quotes` | `array` | No |  |
-| `race` | `string` | No |  |
+| `abilities` | `array` | No | List of abilities and techniques the character possesses |
+| `affiliation` | `string` | No | Organization or group the character belongs to |
+| `age` | `int` | No | Age of the character |
+| `combatStyle` | `string` | No | Primary combat style or breathing technique used by the character |
+| `description` | `string` | No | Detailed description of the character |
+| `gender` | `string` | No | Gender of the character |
+| `id` | `string` | No | Unique identifier for the character |
+| `imageUrl` | `string` | No | URL to the character's image |
+| `name` | `string` | No | Name of the character |
+| `quotes` | `array` | No | Memorable quotes from the character |
+| `race` | `string` | No | Race of the character (Human, Demon, etc.) |
 
 ### Operations
 
@@ -166,12 +166,12 @@ $combat_style = $client->CombatStyle();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `string` | No |  |
-| `forms` | `array` | No |  |
-| `id` | `string` | No |  |
-| `name` | `string` | No |  |
-| `type` | `string` | No |  |
-| `users` | `array` | No |  |
+| `description` | `string` | No | Detailed description of the combat style |
+| `forms` | `array` | No | List of forms or techniques within this combat style |
+| `id` | `string` | No | Unique identifier for the combat style |
+| `name` | `string` | No | Name of the combat style |
+| `type` | `string` | No | Type of combat style (Breathing Technique, Blood Demon Art, etc.) |
+| `users` | `array` | No | Characters who use this combat style |
 
 ### Operations
 

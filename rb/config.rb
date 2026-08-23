@@ -19,6 +19,9 @@ module DemonSlayerConfig
     {
       "main" => {
         "name" => "DemonSlayer",
+        "slug" => "demon-slayer",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {
@@ -42,46 +45,57 @@ module DemonSlayerConfig
           "fields" => [
             {
               "name" => "abilities",
+              "short" => "List of abilities and techniques the character possesses",
               "type" => "`$ARRAY`",
             },
             {
               "name" => "affiliation",
+              "short" => "Organization or group the character belongs to",
               "type" => "`$STRING`",
             },
             {
               "name" => "age",
+              "short" => "Age of the character",
               "type" => "`$INTEGER`",
             },
             {
               "name" => "combatStyle",
+              "short" => "Primary combat style or breathing technique used by the character",
               "type" => "`$STRING`",
             },
             {
               "name" => "description",
+              "short" => "Detailed description of the character",
               "type" => "`$STRING`",
             },
             {
               "name" => "gender",
+              "short" => "Gender of the character",
               "type" => "`$STRING`",
             },
             {
               "name" => "id",
+              "short" => "Unique identifier for the character",
               "type" => "`$STRING`",
             },
             {
               "name" => "imageUrl",
+              "short" => "URL to the character's image",
               "type" => "`$STRING`",
             },
             {
               "name" => "name",
+              "short" => "Name of the character",
               "type" => "`$STRING`",
             },
             {
               "name" => "quotes",
+              "short" => "Memorable quotes from the character",
               "type" => "`$ARRAY`",
             },
             {
               "name" => "race",
+              "short" => "Race of the character (Human, Demon, etc.)",
               "type" => "`$STRING`",
             },
           ],
@@ -185,26 +199,32 @@ module DemonSlayerConfig
           "fields" => [
             {
               "name" => "description",
+              "short" => "Detailed description of the combat style",
               "type" => "`$STRING`",
             },
             {
               "name" => "forms",
+              "short" => "List of forms or techniques within this combat style",
               "type" => "`$ARRAY`",
             },
             {
               "name" => "id",
+              "short" => "Unique identifier for the combat style",
               "type" => "`$STRING`",
             },
             {
               "name" => "name",
+              "short" => "Name of the combat style",
               "type" => "`$STRING`",
             },
             {
               "name" => "type",
+              "short" => "Type of combat style (Breathing Technique, Blood Demon Art, etc.)",
               "type" => "`$STRING`",
             },
             {
               "name" => "users",
+              "short" => "Characters who use this combat style",
               "type" => "`$ARRAY`",
             },
           ],

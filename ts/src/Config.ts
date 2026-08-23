@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'DemonSlayer',
+        slug: "demon-slayer",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -59,46 +70,57 @@ class Config {
       "fields": [
         {
           "name": "abilities",
+          "short": "List of abilities and techniques the character possesses",
           "type": "`$ARRAY`"
         },
         {
           "name": "affiliation",
+          "short": "Organization or group the character belongs to",
           "type": "`$STRING`"
         },
         {
           "name": "age",
+          "short": "Age of the character",
           "type": "`$INTEGER`"
         },
         {
           "name": "combatStyle",
+          "short": "Primary combat style or breathing technique used by the character",
           "type": "`$STRING`"
         },
         {
           "name": "description",
+          "short": "Detailed description of the character",
           "type": "`$STRING`"
         },
         {
           "name": "gender",
+          "short": "Gender of the character",
           "type": "`$STRING`"
         },
         {
           "name": "id",
+          "short": "Unique identifier for the character",
           "type": "`$STRING`"
         },
         {
           "name": "imageUrl",
+          "short": "URL to the character's image",
           "type": "`$STRING`"
         },
         {
           "name": "name",
+          "short": "Name of the character",
           "type": "`$STRING`"
         },
         {
           "name": "quotes",
+          "short": "Memorable quotes from the character",
           "type": "`$ARRAY`"
         },
         {
           "name": "race",
+          "short": "Race of the character (Human, Demon, etc.)",
           "type": "`$STRING`"
         }
       ],
@@ -202,26 +224,32 @@ class Config {
       "fields": [
         {
           "name": "description",
+          "short": "Detailed description of the combat style",
           "type": "`$STRING`"
         },
         {
           "name": "forms",
+          "short": "List of forms or techniques within this combat style",
           "type": "`$ARRAY`"
         },
         {
           "name": "id",
+          "short": "Unique identifier for the combat style",
           "type": "`$STRING`"
         },
         {
           "name": "name",
+          "short": "Name of the combat style",
           "type": "`$STRING`"
         },
         {
           "name": "type",
+          "short": "Type of combat style (Breathing Technique, Blood Demon Art, etc.)",
           "type": "`$STRING`"
         },
         {
           "name": "users",
+          "short": "Characters who use this combat style",
           "type": "`$ARRAY`"
         }
       ],

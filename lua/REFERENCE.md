@@ -94,17 +94,17 @@ local character = client:Character(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `abilities` | `table` | No |  |
-| `affiliation` | `string` | No |  |
-| `age` | `number` | No |  |
-| `combatStyle` | `string` | No |  |
-| `description` | `string` | No |  |
-| `gender` | `string` | No |  |
-| `id` | `string` | No |  |
-| `imageUrl` | `string` | No |  |
-| `name` | `string` | No |  |
-| `quotes` | `table` | No |  |
-| `race` | `string` | No |  |
+| `abilities` | `table` | No | List of abilities and techniques the character possesses |
+| `affiliation` | `string` | No | Organization or group the character belongs to |
+| `age` | `number` | No | Age of the character |
+| `combatStyle` | `string` | No | Primary combat style or breathing technique used by the character |
+| `description` | `string` | No | Detailed description of the character |
+| `gender` | `string` | No | Gender of the character |
+| `id` | `string` | No | Unique identifier for the character |
+| `imageUrl` | `string` | No | URL to the character's image |
+| `name` | `string` | No | Name of the character |
+| `quotes` | `table` | No | Memorable quotes from the character |
+| `race` | `string` | No | Race of the character (Human, Demon, etc.) |
 
 ### Operations
 
@@ -164,12 +164,12 @@ local combat_style = client:CombatStyle(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `description` | `string` | No |  |
-| `forms` | `table` | No |  |
-| `id` | `string` | No |  |
-| `name` | `string` | No |  |
-| `type` | `string` | No |  |
-| `users` | `table` | No |  |
+| `description` | `string` | No | Detailed description of the combat style |
+| `forms` | `table` | No | List of forms or techniques within this combat style |
+| `id` | `string` | No | Unique identifier for the combat style |
+| `name` | `string` | No | Name of the combat style |
+| `type` | `string` | No | Type of combat style (Breathing Technique, Blood Demon Art, etc.) |
+| `users` | `table` | No | Characters who use this combat style |
 
 ### Operations
 
