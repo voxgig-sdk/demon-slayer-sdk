@@ -42,6 +42,7 @@ class DemonSlayerConfig
           'options' => [
             'active' => false,
           ],
+          'transport' => 'base',
         ],
             ],
             "options" => [
