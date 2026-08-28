@@ -68,50 +68,22 @@ CharacterLoadMatch = Struct.new(
 
 # Request payload for Character#list.
 #
-# @!attribute [rw] abilities
-#   @return [Array, nil]
-#
 # @!attribute [rw] affiliation
 #   @return [String, nil]
 #
 # @!attribute [rw] age
 #   @return [Integer, nil]
 #
-# @!attribute [rw] combatStyle
-#   @return [String, nil]
-#
-# @!attribute [rw] description
-#   @return [String, nil]
-#
 # @!attribute [rw] gender
-#   @return [String, nil]
-#
-# @!attribute [rw] id
-#   @return [String, nil]
-#
-# @!attribute [rw] imageUrl
 #   @return [String, nil]
 #
 # @!attribute [rw] name
 #   @return [String, nil]
-#
-# @!attribute [rw] quotes
-#   @return [Array, nil]
-#
-# @!attribute [rw] race
-#   @return [String, nil]
 CharacterListMatch = Struct.new(
-  :abilities,
   :affiliation,
   :age,
-  :combatStyle,
-  :description,
   :gender,
-  :id,
-  :imageUrl,
   :name,
-  :quotes,
-  :race,
   keyword_init: true
 )
 
@@ -155,30 +127,14 @@ CombatStyleLoadMatch = Struct.new(
 
 # Request payload for CombatStyle#list.
 #
-# @!attribute [rw] description
-#   @return [String, nil]
-#
-# @!attribute [rw] forms
-#   @return [Array, nil]
-#
-# @!attribute [rw] id
-#   @return [String, nil]
-#
 # @!attribute [rw] name
 #   @return [String, nil]
 #
 # @!attribute [rw] type
 #   @return [String, nil]
-#
-# @!attribute [rw] users
-#   @return [Array, nil]
 CombatStyleListMatch = Struct.new(
-  :description,
-  :forms,
-  :id,
   :name,
   :type,
-  :users,
   keyword_init: true
 )
 

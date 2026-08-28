@@ -35,17 +35,10 @@ class CharacterLoadMatch(TypedDict):
 
 
 class CharacterListMatch(TypedDict, total=False):
-    abilities: list
     affiliation: str
     age: int
-    combatStyle: str
-    description: str
     gender: str
-    id: str
-    imageUrl: str
     name: str
-    quotes: list
-    race: str
 
 
 class CombatStyle(TypedDict, total=False):
@@ -62,9 +55,5 @@ class CombatStyleLoadMatch(TypedDict):
 
 
 class CombatStyleListMatch(TypedDict, total=False):
-    description: str
-    forms: list
-    id: str
     name: str
     type: str
-    users: list

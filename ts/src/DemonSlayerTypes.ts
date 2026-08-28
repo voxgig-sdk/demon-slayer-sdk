@@ -24,17 +24,10 @@ export interface CharacterLoadMatch {
 }
 
 export interface CharacterListMatch {
-  abilities?: any[]
   affiliation?: string
   age?: number
-  combatStyle?: string
-  description?: string
   gender?: string
-  id?: string
-  imageUrl?: string
   name?: string
-  quotes?: any[]
-  race?: string
 }
 
 export interface CombatStyle {
@@ -51,11 +44,7 @@ export interface CombatStyleLoadMatch {
 }
 
 export interface CombatStyleListMatch {
-  description?: string
-  forms?: any[]
-  id?: string
   name?: string
   type?: string
-  users?: any[]
 }
 

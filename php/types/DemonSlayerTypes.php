@@ -37,17 +37,10 @@ class CharacterLoadMatch
 /** Request payload for Character#list. */
 class CharacterListMatch
 {
-    public ?array $abilities = null;
     public ?string $affiliation = null;
     public ?int $age = null;
-    public ?string $combatStyle = null;
-    public ?string $description = null;
     public ?string $gender = null;
-    public ?string $id = null;
-    public ?string $imageUrl = null;
     public ?string $name = null;
-    public ?array $quotes = null;
-    public ?string $race = null;
 }
 
 /** CombatStyle entity data model. */
@@ -70,11 +63,7 @@ class CombatStyleLoadMatch
 /** Request payload for CombatStyle#list. */
 class CombatStyleListMatch
 {
-    public ?string $description = null;
-    public ?array $forms = null;
-    public ?string $id = null;
     public ?string $name = null;
     public ?string $type = null;
-    public ?array $users = null;
 }
 
