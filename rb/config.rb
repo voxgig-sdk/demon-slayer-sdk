@@ -100,6 +100,10 @@ module DemonSlayerConfig
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "character",
           "op" => {
             "list" => {
@@ -138,8 +142,10 @@ module DemonSlayerConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/characters",
-                  "parts" => [
-                    "characters",
+                  "segments" => [
+                    {
+                      "lit" => "characters",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -153,6 +159,9 @@ module DemonSlayerConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "characters",
+                  ],
                 },
               ],
             },
@@ -175,9 +184,13 @@ module DemonSlayerConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/characters/{id}",
-                  "parts" => [
-                    "characters",
-                    "{id}",
+                  "segments" => [
+                    {
+                      "lit" => "characters",
+                    },
+                    {
+                      "var" => "id",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -188,6 +201,10 @@ module DemonSlayerConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "characters",
+                    "{id}",
+                  ],
                 },
               ],
             },
@@ -229,6 +246,10 @@ module DemonSlayerConfig
               "type" => "`$ARRAY`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "combat_style",
           "op" => {
             "list" => {
@@ -255,8 +276,10 @@ module DemonSlayerConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/combat-styles",
-                  "parts" => [
-                    "combat-styles",
+                  "segments" => [
+                    {
+                      "lit" => "combat-styles",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -268,6 +291,9 @@ module DemonSlayerConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "combat-styles",
+                  ],
                 },
               ],
             },
@@ -290,9 +316,13 @@ module DemonSlayerConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/combat-styles/{id}",
-                  "parts" => [
-                    "combat-styles",
-                    "{id}",
+                  "segments" => [
+                    {
+                      "lit" => "combat-styles",
+                    },
+                    {
+                      "var" => "id",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -303,6 +333,10 @@ module DemonSlayerConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "combat-styles",
+                    "{id}",
+                  ],
                 },
               ],
             },

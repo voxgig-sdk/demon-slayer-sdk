@@ -74,8 +74,10 @@ main: kit: entity: combat_style: {
           }
           method: "GET"
           orig: "/combat-styles"
-          parts: [
-            "combat-styles"
+          segments: [
+            {
+              lit: "combat-styles"
+            }
           ]
           select: {
             exist: [
@@ -107,9 +109,13 @@ main: kit: entity: combat_style: {
           }
           method: "GET"
           orig: "/combat-styles/{id}"
-          parts: [
-            "combat-styles"
-            "{id}"
+          segments: [
+            {
+              lit: "combat-styles"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [

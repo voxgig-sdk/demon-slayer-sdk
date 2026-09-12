@@ -118,8 +118,10 @@ main: kit: entity: character: {
           }
           method: "GET"
           orig: "/characters"
-          parts: [
-            "characters"
+          segments: [
+            {
+              lit: "characters"
+            }
           ]
           select: {
             exist: [
@@ -153,9 +155,13 @@ main: kit: entity: character: {
           }
           method: "GET"
           orig: "/characters/{id}"
-          parts: [
-            "characters"
-            "{id}"
+          segments: [
+            {
+              lit: "characters"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [
