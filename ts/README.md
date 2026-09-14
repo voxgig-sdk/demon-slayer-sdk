@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { DemonSlayerSDK } from '@voxgig-sdk/demon-slayer'
+import { DemonSlayerSDK } from '@voxgig-sdk/demon-slayer-sdk'
 
 const client = new DemonSlayerSDK()
 ```
@@ -496,7 +496,7 @@ demon-slayer/
 Import the SDK from the package root:
 
 ```ts
-import { DemonSlayerSDK } from '@voxgig-sdk/demon-slayer'
+import { DemonSlayerSDK } from '@voxgig-sdk/demon-slayer-sdk'
 ```
 
 ### Entity state

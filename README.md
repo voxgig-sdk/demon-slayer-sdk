@@ -105,7 +105,7 @@ local results, err = client:Character():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/demon-slayer` | publish pending — [install from git tag](https://github.com/voxgig-sdk/demon-slayer-sdk/releases) |
+| TypeScript | `@voxgig-sdk/demon-slayer-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/demon-slayer-sdk/releases) |
 | Python | `voxgig-sdk-demon-slayer` | publish pending — [install from git tag](https://github.com/voxgig-sdk/demon-slayer-sdk/releases) |
 | PHP | `voxgig-sdk/demon-slayer` | publish pending — [install from git tag](https://github.com/voxgig-sdk/demon-slayer-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/demon-slayer-sdk/go` | `go get github.com/voxgig-sdk/demon-slayer-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:Character():list()
 ### TypeScript
 
 ```ts
-import { DemonSlayerSDK } from '@voxgig-sdk/demon-slayer'
+import { DemonSlayerSDK } from '@voxgig-sdk/demon-slayer-sdk'
 
 const client = new DemonSlayerSDK()
 

@@ -1,5 +1,5 @@
 {
-  "name": "@voxgig-sdk/demon-slayer",
+  "name": "@voxgig-sdk/demon-slayer-sdk",
   "version": "0.0.1",
   "description": "Unofficial generated TypeScript SDK for the Demon Slayer public API. Not affiliated with or endorsed by the upstream API provider.",
   "keywords": [
