@@ -37,5 +37,177 @@
         "users": []
       }
     }
+  },
+  "requests": {
+    "GET /combat-styles": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getCombatStyles",
+        "parameters": [
+          {
+            "description": "Filter combat styles by name",
+            "in": "query",
+            "name": "name",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Filter combat styles by type",
+            "in": "query",
+            "name": "type",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "properties": {
+                      "description": {
+                        "description": "Detailed description of the combat style",
+                        "type": "string"
+                      },
+                      "forms": {
+                        "description": "List of forms or techniques within this combat style",
+                        "items": {
+                          "properties": {
+                            "description": {
+                              "description": "Description of the form",
+                              "type": "string"
+                            },
+                            "name": {
+                              "description": "Name of the form",
+                              "type": "string"
+                            }
+                          },
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "id": {
+                        "description": "Unique identifier for the combat style",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "Name of the combat style",
+                        "type": "string"
+                      },
+                      "type": {
+                        "description": "Type of combat style (Breathing Technique, Blood Demon Art, etc.)",
+                        "type": "string"
+                      },
+                      "users": {
+                        "description": "Characters who use this combat style",
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful response with combat style data"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /combat-styles/{id}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getCombatStyleById",
+        "parameters": [
+          {
+            "description": "Unique identifier of the combat style",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "description": {
+                      "description": "Detailed description of the combat style",
+                      "type": "string"
+                    },
+                    "forms": {
+                      "description": "List of forms or techniques within this combat style",
+                      "items": {
+                        "properties": {
+                          "description": {
+                            "description": "Description of the form",
+                            "type": "string"
+                          },
+                          "name": {
+                            "description": "Name of the form",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "id": {
+                      "description": "Unique identifier for the combat style",
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Name of the combat style",
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "Type of combat style (Breathing Technique, Blood Demon Art, etc.)",
+                      "type": "string"
+                    },
+                    "users": {
+                      "description": "Characters who use this combat style",
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response with combat style details"
+          },
+          "404": {
+            "description": "Combat style not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }

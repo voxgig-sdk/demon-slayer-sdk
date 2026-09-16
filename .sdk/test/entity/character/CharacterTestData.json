@@ -4,7 +4,7 @@
       "CHARACTER00": {
         "abilities": [],
         "affiliation": "s6f",
-        "age": "s70",
+        "age": 112,
         "combatStyle": "s71",
         "description": "s72",
         "gender": "s73",
@@ -17,7 +17,7 @@
       "CHARACTER01": {
         "abilities": [],
         "affiliation": "sdd",
-        "age": "sde",
+        "age": 222,
         "combatStyle": "sdf",
         "description": "se0",
         "gender": "se1",
@@ -30,7 +30,7 @@
       "CHARACTER02": {
         "abilities": [],
         "affiliation": "s14b",
-        "age": "s14c",
+        "age": 332,
         "combatStyle": "s14d",
         "description": "s14e",
         "gender": "s14f",
@@ -47,7 +47,7 @@
       "character_ref01": {
         "abilities": [],
         "affiliation": "s1b9",
-        "age": "s1ba",
+        "age": 442,
         "combatStyle": "s1bb",
         "description": "s1bc",
         "gender": "s1bd",
@@ -55,6 +55,230 @@
         "name": "s1c0",
         "quotes": [],
         "race": "s1c2"
+      }
+    }
+  },
+  "requests": {
+    "GET /characters": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getCharacters",
+        "parameters": [
+          {
+            "description": "Filter characters by name",
+            "in": "query",
+            "name": "name",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Filter characters by gender",
+            "in": "query",
+            "name": "gender",
+            "required": false,
+            "schema": {
+              "enum": [
+                "Male",
+                "Female"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Filter characters by age",
+            "in": "query",
+            "name": "age",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Filter characters by affiliation",
+            "in": "query",
+            "name": "affiliation",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "properties": {
+                      "abilities": {
+                        "description": "List of abilities and techniques the character possesses",
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "affiliation": {
+                        "description": "Organization or group the character belongs to",
+                        "type": "string"
+                      },
+                      "age": {
+                        "description": "Age of the character",
+                        "nullable": true,
+                        "type": "integer"
+                      },
+                      "combatStyle": {
+                        "description": "Primary combat style or breathing technique used by the character",
+                        "type": "string"
+                      },
+                      "description": {
+                        "description": "Detailed description of the character",
+                        "type": "string"
+                      },
+                      "gender": {
+                        "description": "Gender of the character",
+                        "enum": [
+                          "Male",
+                          "Female"
+                        ],
+                        "type": "string"
+                      },
+                      "id": {
+                        "description": "Unique identifier for the character",
+                        "type": "string"
+                      },
+                      "imageUrl": {
+                        "description": "URL to the character's image",
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "Name of the character",
+                        "type": "string"
+                      },
+                      "quotes": {
+                        "description": "Memorable quotes from the character",
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "race": {
+                        "description": "Race of the character (Human, Demon, etc.)",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful response with character data"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /characters/{id}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getCharacterById",
+        "parameters": [
+          {
+            "description": "Unique identifier of the character",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "abilities": {
+                      "description": "List of abilities and techniques the character possesses",
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "affiliation": {
+                      "description": "Organization or group the character belongs to",
+                      "type": "string"
+                    },
+                    "age": {
+                      "description": "Age of the character",
+                      "nullable": true,
+                      "type": "integer"
+                    },
+                    "combatStyle": {
+                      "description": "Primary combat style or breathing technique used by the character",
+                      "type": "string"
+                    },
+                    "description": {
+                      "description": "Detailed description of the character",
+                      "type": "string"
+                    },
+                    "gender": {
+                      "description": "Gender of the character",
+                      "enum": [
+                        "Male",
+                        "Female"
+                      ],
+                      "type": "string"
+                    },
+                    "id": {
+                      "description": "Unique identifier for the character",
+                      "type": "string"
+                    },
+                    "imageUrl": {
+                      "description": "URL to the character's image",
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Name of the character",
+                      "type": "string"
+                    },
+                    "quotes": {
+                      "description": "Memorable quotes from the character",
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    },
+                    "race": {
+                      "description": "Race of the character (Human, Demon, etc.)",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response with character details"
+          },
+          "404": {
+            "description": "Character not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "securitySource": "unspecified"
       }
     }
   }

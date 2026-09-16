@@ -1,12 +1,18 @@
 # DemonSlayer SDK feature factory
 
 from demonslayer_sdk.feature.base_feature import DemonSlayerBaseFeature
+from demonslayer_sdk.feature.ratelimit_feature import DemonSlayerRatelimitFeature
+from demonslayer_sdk.feature.retry_feature import DemonSlayerRetryFeature
 from demonslayer_sdk.feature.test_feature import DemonSlayerTestFeature
+from demonslayer_sdk.feature.timeout_feature import DemonSlayerTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: DemonSlayerBaseFeature(),
+    "ratelimit": lambda: DemonSlayerRatelimitFeature(),
+    "retry": lambda: DemonSlayerRetryFeature(),
     "test": lambda: DemonSlayerTestFeature(),
+    "timeout": lambda: DemonSlayerTimeoutFeature(),
 }
 
 
