@@ -105,12 +105,12 @@ local results, err = client:Character():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/demon-slayer-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/demon-slayer-sdk/releases) |
-| Python | `voxgig-sdk-demon-slayer` | publish pending — [install from git tag](https://github.com/voxgig-sdk/demon-slayer-sdk/releases) |
-| PHP | `voxgig-sdk/demon-slayer` | publish pending — [install from git tag](https://github.com/voxgig-sdk/demon-slayer-sdk/releases) |
+| TypeScript | `@voxgig-sdk/demon-slayer-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/demon-slayer-sdk/tags) |
+| Python | `voxgig-sdk-demon-slayer` | publish pending — [install from git tag](https://github.com/voxgig-sdk/demon-slayer-sdk/tags) |
+| PHP | `voxgig-sdk/demon-slayer` | publish pending — [install from git tag](https://github.com/voxgig-sdk/demon-slayer-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/demon-slayer-sdk/go` | `go get github.com/voxgig-sdk/demon-slayer-sdk/go@latest` |
-| Ruby | `voxgig-sdk-demon-slayer` | publish pending — [install from git tag](https://github.com/voxgig-sdk/demon-slayer-sdk/releases) |
-| Lua | `voxgig-sdk-demon-slayer` | publish pending — [install from git tag](https://github.com/voxgig-sdk/demon-slayer-sdk/releases) |
+| Ruby | `voxgig-sdk-demon-slayer` | publish pending — [install from git tag](https://github.com/voxgig-sdk/demon-slayer-sdk/tags) |
+| Lua | `voxgig-sdk-demon-slayer` | publish pending — [install from git tag](https://github.com/voxgig-sdk/demon-slayer-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/demon-slayer-sdk/go-cli` | `go install github.com/voxgig-sdk/demon-slayer-sdk/go-cli/cmd/demon-slayer@latest` |
 | Go MCP server | `github.com/voxgig-sdk/demon-slayer-sdk/go-mcp` | `go get github.com/voxgig-sdk/demon-slayer-sdk/go-mcp@latest` |
 

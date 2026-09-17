@@ -127,12 +127,12 @@ class Config {
 
     entity: {
       
-      character: {
-      },
-
-      combat_style: {
-      },
-
+        character: {
+        },
+  
+        combat_style: {
+        },
+  
     }
   }
 

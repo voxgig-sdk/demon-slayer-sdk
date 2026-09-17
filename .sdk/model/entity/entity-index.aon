@@ -1,4 +1,4 @@
 # Entity Models
 
-@"character.aon"
-@"combat_style.aon"
+@"./character.aon"
+@"./combat_style.aon"
