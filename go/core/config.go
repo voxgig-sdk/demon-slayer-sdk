@@ -92,58 +92,69 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "abilities",
-						"short": "List of abilities and techniques the character possesses",
+						"title": "Abilities",
 						"type": "`$ARRAY`",
+						"short": "List of abilities and techniques the character possesses",
 					},
 					map[string]any{
 						"name": "affiliation",
-						"short": "Organization or group the character belongs to",
+						"title": "Affiliation",
 						"type": "`$STRING`",
+						"short": "Organization or group the character belongs to",
 					},
 					map[string]any{
 						"name": "age",
-						"short": "Age of the character",
+						"title": "Age",
 						"type": "`$INTEGER`",
+						"short": "Age of the character",
 					},
 					map[string]any{
 						"name": "combatStyle",
-						"short": "Primary combat style or breathing technique used by the character",
+						"title": "Combat Style",
 						"type": "`$STRING`",
+						"short": "Primary combat style or breathing technique used by the character",
 					},
 					map[string]any{
 						"name": "description",
-						"short": "Detailed description of the character",
+						"title": "Description",
 						"type": "`$STRING`",
+						"short": "Detailed description of the character",
 					},
 					map[string]any{
 						"name": "gender",
-						"short": "Gender of the character",
+						"title": "Gender",
 						"type": "`$STRING`",
+						"short": "Gender of the character",
 					},
 					map[string]any{
 						"name": "id",
-						"short": "Unique identifier for the character",
+						"title": "Id",
 						"type": "`$STRING`",
+						"short": "Unique identifier for the character",
 					},
 					map[string]any{
 						"name": "imageUrl",
-						"short": "URL to the character's image",
+						"title": "Image Url",
 						"type": "`$STRING`",
+						"short": "URL to the character's image",
 					},
 					map[string]any{
 						"name": "name",
-						"short": "Name of the character",
+						"title": "Name",
 						"type": "`$STRING`",
+						"short": "Name of the character",
 					},
 					map[string]any{
 						"name": "quotes",
-						"short": "Memorable quotes from the character",
+						"title": "Quotes",
 						"type": "`$ARRAY`",
+						"short": "Memorable quotes from the character",
 					},
 					map[string]any{
 						"name": "race",
-						"short": "Race of the character (Human, Demon, etc.)",
+						"title": "Race",
 						"type": "`$STRING`",
+						"short": "Race of the character (Human, Demon, etc.)",
 					},
 				},
 				"id": map[string]any{
@@ -157,40 +168,48 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"kind": "query",
-											"name": "affiliation",
-											"orig": "affiliation",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "age",
-											"orig": "age",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "gender",
-											"orig": "gender",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "name",
-											"orig": "name",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/characters",
 								"segments": []any{
 									map[string]any{
 										"lit": "characters",
+									},
+								},
+								"parts": []any{
+									"characters",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "affiliation",
+											"orig": "affiliation",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "age",
+											"orig": "age",
+											"type": "`$INTEGER`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "gender",
+											"orig": "gender",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "name",
+											"orig": "name",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
 									},
 								},
 								"select": map[string]any{
@@ -201,13 +220,6 @@ func MakeConfig() map[string]any {
 										"name",
 									},
 								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"characters",
-								},
 							},
 						},
 					},
@@ -216,17 +228,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"kind": "param",
-											"name": "id",
-											"orig": "id",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/characters/{id}",
@@ -238,18 +239,30 @@ func MakeConfig() map[string]any {
 										"var": "id",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"id",
-									},
+								"parts": []any{
+									"characters",
+									"{id}",
 								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"characters",
-									"{id}",
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "id",
+											"orig": "id",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"id",
+									},
 								},
 							},
 						},
@@ -263,33 +276,39 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "description",
-						"short": "Detailed description of the combat style",
+						"title": "Description",
 						"type": "`$STRING`",
+						"short": "Detailed description of the combat style",
 					},
 					map[string]any{
 						"name": "forms",
-						"short": "List of forms or techniques within this combat style",
+						"title": "Forms",
 						"type": "`$ARRAY`",
+						"short": "List of forms or techniques within this combat style",
 					},
 					map[string]any{
 						"name": "id",
-						"short": "Unique identifier for the combat style",
+						"title": "Id",
 						"type": "`$STRING`",
+						"short": "Unique identifier for the combat style",
 					},
 					map[string]any{
 						"name": "name",
-						"short": "Name of the combat style",
+						"title": "Name",
 						"type": "`$STRING`",
+						"short": "Name of the combat style",
 					},
 					map[string]any{
 						"name": "type",
-						"short": "Type of combat style (Breathing Technique, Blood Demon Art, etc.)",
+						"title": "Type",
 						"type": "`$STRING`",
+						"short": "Type of combat style (Breathing Technique, Blood Demon Art, etc.)",
 					},
 					map[string]any{
 						"name": "users",
-						"short": "Characters who use this combat style",
+						"title": "Users",
 						"type": "`$ARRAY`",
+						"short": "Characters who use this combat style",
 					},
 				},
 				"id": map[string]any{
@@ -303,22 +322,6 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"kind": "query",
-											"name": "name",
-											"orig": "name",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "type",
-											"orig": "type",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/combat-styles",
@@ -327,18 +330,35 @@ func MakeConfig() map[string]any {
 										"lit": "combat-styles",
 									},
 								},
+								"parts": []any{
+									"combat-styles",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "name",
+											"orig": "name",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "type",
+											"orig": "type",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+									},
+								},
 								"select": map[string]any{
 									"exist": []any{
 										"name",
 										"type",
 									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"combat-styles",
 								},
 							},
 						},
@@ -348,17 +368,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"kind": "param",
-											"name": "id",
-											"orig": "id",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/combat-styles/{id}",
@@ -370,18 +379,30 @@ func MakeConfig() map[string]any {
 										"var": "id",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"id",
-									},
+								"parts": []any{
+									"combat-styles",
+									"{id}",
 								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"combat-styles",
-									"{id}",
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "id",
+											"orig": "id",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"id",
+									},
 								},
 							},
 						},

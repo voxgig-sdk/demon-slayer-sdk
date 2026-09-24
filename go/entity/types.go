@@ -1,7 +1,7 @@
 // Typed models for the DemonSlayer SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,17 +14,6 @@ import (
 
 // Character is the typed data model for the character entity.
 type Character struct {
-	Abilities *[]any `json:"abilities,omitempty"`
-	Affiliation *string `json:"affiliation,omitempty"`
-	Age *int `json:"age,omitempty"`
-	CombatStyle *string `json:"combatStyle,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Gender *string `json:"gender,omitempty"`
-	Id *string `json:"id,omitempty"`
-	ImageUrl *string `json:"imageUrl,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Quotes *[]any `json:"quotes,omitempty"`
-	Race *string `json:"race,omitempty"`
 }
 
 // CharacterLoadMatch is the typed request payload for Character.LoadTyped.
@@ -42,12 +31,6 @@ type CharacterListMatch struct {
 
 // CombatStyle is the typed data model for the combat_style entity.
 type CombatStyle struct {
-	Description *string `json:"description,omitempty"`
-	Forms *[]any `json:"forms,omitempty"`
-	Id *string `json:"id,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Type *string `json:"type,omitempty"`
-	Users *[]any `json:"users,omitempty"`
 }
 
 // CombatStyleLoadMatch is the typed request payload for CombatStyle.LoadTyped.

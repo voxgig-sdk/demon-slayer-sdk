@@ -1,0 +1,203 @@
+# Entity: character
+
+main: kit: entity: character: {
+
+  alias: field: {}
+
+  fields: {
+    abilities: {
+      h: "Abilities"
+      n: "abilities"
+      r: false
+      sh: "List of abilities and techniques the character possesses"
+      t: "`$ARRAY`"
+    }
+    affiliation: {
+      h: "Affiliation"
+      n: "affiliation"
+      r: false
+      sh: "Organization or group the character belongs to"
+      t: "`$STRING`"
+    }
+    age: {
+      h: "Age"
+      n: "age"
+      r: false
+      sh: "Age of the character"
+      t: "`$INTEGER`"
+    }
+    combatStyle: {
+      h: "Combat Style"
+      n: "combatStyle"
+      r: false
+      sh: "Primary combat style or breathing technique used by the character"
+      t: "`$STRING`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      sh: "Detailed description of the character"
+      t: "`$STRING`"
+    }
+    gender: {
+      h: "Gender"
+      n: "gender"
+      r: false
+      sh: "Gender of the character"
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "Unique identifier for the character"
+      t: "`$STRING`"
+    }
+    imageUrl: {
+      h: "Image Url"
+      n: "imageUrl"
+      r: false
+      sh: "URL to the character's image"
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      sh: "Name of the character"
+      t: "`$STRING`"
+    }
+    quotes: {
+      h: "Quotes"
+      n: "quotes"
+      r: false
+      sh: "Memorable quotes from the character"
+      t: "`$ARRAY`"
+    }
+    race: {
+      h: "Race"
+      n: "race"
+      r: false
+      sh: "Race of the character (Human, Demon, etc.)"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "character"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /characters"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "affiliation"
+                or: "affiliation"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "age"
+                or: "age"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "gender"
+                or: "gender"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "name"
+                or: "name"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/characters"
+          q: {
+            exist: [
+              "affiliation"
+              "age"
+              "gender"
+              "name"
+            ]
+          }
+          s: [
+            {
+              lit: "characters"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /characters/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/characters/{id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "characters"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

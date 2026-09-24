@@ -88,58 +88,69 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "abilities",
-            ["short"] = "List of abilities and techniques the character possesses",
+            ["title"] = "Abilities",
             ["type"] = "`$ARRAY`",
+            ["short"] = "List of abilities and techniques the character possesses",
           },
           {
             ["name"] = "affiliation",
-            ["short"] = "Organization or group the character belongs to",
+            ["title"] = "Affiliation",
             ["type"] = "`$STRING`",
+            ["short"] = "Organization or group the character belongs to",
           },
           {
             ["name"] = "age",
-            ["short"] = "Age of the character",
+            ["title"] = "Age",
             ["type"] = "`$INTEGER`",
+            ["short"] = "Age of the character",
           },
           {
             ["name"] = "combatStyle",
-            ["short"] = "Primary combat style or breathing technique used by the character",
+            ["title"] = "Combat Style",
             ["type"] = "`$STRING`",
+            ["short"] = "Primary combat style or breathing technique used by the character",
           },
           {
             ["name"] = "description",
-            ["short"] = "Detailed description of the character",
+            ["title"] = "Description",
             ["type"] = "`$STRING`",
+            ["short"] = "Detailed description of the character",
           },
           {
             ["name"] = "gender",
-            ["short"] = "Gender of the character",
+            ["title"] = "Gender",
             ["type"] = "`$STRING`",
+            ["short"] = "Gender of the character",
           },
           {
             ["name"] = "id",
-            ["short"] = "Unique identifier for the character",
+            ["title"] = "Id",
             ["type"] = "`$STRING`",
+            ["short"] = "Unique identifier for the character",
           },
           {
             ["name"] = "imageUrl",
-            ["short"] = "URL to the character's image",
+            ["title"] = "Image Url",
             ["type"] = "`$STRING`",
+            ["short"] = "URL to the character's image",
           },
           {
             ["name"] = "name",
-            ["short"] = "Name of the character",
+            ["title"] = "Name",
             ["type"] = "`$STRING`",
+            ["short"] = "Name of the character",
           },
           {
             ["name"] = "quotes",
-            ["short"] = "Memorable quotes from the character",
+            ["title"] = "Quotes",
             ["type"] = "`$ARRAY`",
+            ["short"] = "Memorable quotes from the character",
           },
           {
             ["name"] = "race",
-            ["short"] = "Race of the character (Human, Demon, etc.)",
+            ["title"] = "Race",
             ["type"] = "`$STRING`",
+            ["short"] = "Race of the character (Human, Demon, etc.)",
           },
         },
         ["id"] = {
@@ -153,40 +164,48 @@ local function make_config()
             ["name"] = "list",
             ["points"] = {
               {
-                ["args"] = {
-                  ["query"] = {
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "affiliation",
-                      ["orig"] = "affiliation",
-                      ["type"] = "`$STRING`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "age",
-                      ["orig"] = "age",
-                      ["type"] = "`$INTEGER`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "gender",
-                      ["orig"] = "gender",
-                      ["type"] = "`$STRING`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "name",
-                      ["orig"] = "name",
-                      ["type"] = "`$STRING`",
-                    },
-                  },
-                },
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/characters",
                 ["segments"] = {
                   {
                     ["lit"] = "characters",
+                  },
+                },
+                ["parts"] = {
+                  "characters",
+                },
+                ["rename"] = {},
+                ["transform"] = {
+                  ["req"] = "`reqdata`",
+                  ["res"] = "`body`",
+                },
+                ["args"] = {
+                  ["query"] = {
+                    {
+                      ["name"] = "affiliation",
+                      ["orig"] = "affiliation",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "age",
+                      ["orig"] = "age",
+                      ["type"] = "`$INTEGER`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "gender",
+                      ["orig"] = "gender",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "name",
+                      ["orig"] = "name",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                    },
                   },
                 },
                 ["select"] = {
@@ -197,13 +216,6 @@ local function make_config()
                     "name",
                   },
                 },
-                ["transform"] = {
-                  ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
-                },
-                ["parts"] = {
-                  "characters",
-                },
               },
             },
           },
@@ -212,17 +224,6 @@ local function make_config()
             ["name"] = "load",
             ["points"] = {
               {
-                ["args"] = {
-                  ["params"] = {
-                    {
-                      ["kind"] = "param",
-                      ["name"] = "id",
-                      ["orig"] = "id",
-                      ["reqd"] = true,
-                      ["type"] = "`$STRING`",
-                    },
-                  },
-                },
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/characters/{id}",
@@ -234,18 +235,30 @@ local function make_config()
                     ["var"] = "id",
                   },
                 },
-                ["select"] = {
-                  ["exist"] = {
-                    "id",
-                  },
+                ["parts"] = {
+                  "characters",
+                  "{id}",
                 },
+                ["rename"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["parts"] = {
-                  "characters",
-                  "{id}",
+                ["args"] = {
+                  ["params"] = {
+                    {
+                      ["name"] = "id",
+                      ["orig"] = "id",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "param",
+                      ["reqd"] = true,
+                    },
+                  },
+                },
+                ["select"] = {
+                  ["exist"] = {
+                    "id",
+                  },
                 },
               },
             },
@@ -259,33 +272,39 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "description",
-            ["short"] = "Detailed description of the combat style",
+            ["title"] = "Description",
             ["type"] = "`$STRING`",
+            ["short"] = "Detailed description of the combat style",
           },
           {
             ["name"] = "forms",
-            ["short"] = "List of forms or techniques within this combat style",
+            ["title"] = "Forms",
             ["type"] = "`$ARRAY`",
+            ["short"] = "List of forms or techniques within this combat style",
           },
           {
             ["name"] = "id",
-            ["short"] = "Unique identifier for the combat style",
+            ["title"] = "Id",
             ["type"] = "`$STRING`",
+            ["short"] = "Unique identifier for the combat style",
           },
           {
             ["name"] = "name",
-            ["short"] = "Name of the combat style",
+            ["title"] = "Name",
             ["type"] = "`$STRING`",
+            ["short"] = "Name of the combat style",
           },
           {
             ["name"] = "type",
-            ["short"] = "Type of combat style (Breathing Technique, Blood Demon Art, etc.)",
+            ["title"] = "Type",
             ["type"] = "`$STRING`",
+            ["short"] = "Type of combat style (Breathing Technique, Blood Demon Art, etc.)",
           },
           {
             ["name"] = "users",
-            ["short"] = "Characters who use this combat style",
+            ["title"] = "Users",
             ["type"] = "`$ARRAY`",
+            ["short"] = "Characters who use this combat style",
           },
         },
         ["id"] = {
@@ -299,22 +318,6 @@ local function make_config()
             ["name"] = "list",
             ["points"] = {
               {
-                ["args"] = {
-                  ["query"] = {
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "name",
-                      ["orig"] = "name",
-                      ["type"] = "`$STRING`",
-                    },
-                    {
-                      ["kind"] = "query",
-                      ["name"] = "type",
-                      ["orig"] = "type",
-                      ["type"] = "`$STRING`",
-                    },
-                  },
-                },
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/combat-styles",
@@ -323,18 +326,35 @@ local function make_config()
                     ["lit"] = "combat-styles",
                   },
                 },
+                ["parts"] = {
+                  "combat-styles",
+                },
+                ["rename"] = {},
+                ["transform"] = {
+                  ["req"] = "`reqdata`",
+                  ["res"] = "`body`",
+                },
+                ["args"] = {
+                  ["query"] = {
+                    {
+                      ["name"] = "name",
+                      ["orig"] = "name",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                    },
+                    {
+                      ["name"] = "type",
+                      ["orig"] = "type",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "query",
+                    },
+                  },
+                },
                 ["select"] = {
                   ["exist"] = {
                     "name",
                     "type",
                   },
-                },
-                ["transform"] = {
-                  ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
-                },
-                ["parts"] = {
-                  "combat-styles",
                 },
               },
             },
@@ -344,17 +364,6 @@ local function make_config()
             ["name"] = "load",
             ["points"] = {
               {
-                ["args"] = {
-                  ["params"] = {
-                    {
-                      ["kind"] = "param",
-                      ["name"] = "id",
-                      ["orig"] = "id",
-                      ["reqd"] = true,
-                      ["type"] = "`$STRING`",
-                    },
-                  },
-                },
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/combat-styles/{id}",
@@ -366,18 +375,30 @@ local function make_config()
                     ["var"] = "id",
                   },
                 },
-                ["select"] = {
-                  ["exist"] = {
-                    "id",
-                  },
+                ["parts"] = {
+                  "combat-styles",
+                  "{id}",
                 },
+                ["rename"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
-                ["parts"] = {
-                  "combat-styles",
-                  "{id}",
+                ["args"] = {
+                  ["params"] = {
+                    {
+                      ["name"] = "id",
+                      ["orig"] = "id",
+                      ["type"] = "`$STRING`",
+                      ["kind"] = "param",
+                      ["reqd"] = true,
+                    },
+                  },
+                },
+                ["select"] = {
+                  ["exist"] = {
+                    "id",
+                  },
                 },
               },
             },
