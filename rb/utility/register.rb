@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 DemonSlayerUtility.registrar = ->(u) {
   u.clean = DemonSlayerUtilities::Clean
+  u.clean_add = DemonSlayerUtilities::CleanAdd
+  u.clean_explain = DemonSlayerUtilities::CleanExplain
   u.done = DemonSlayerUtilities::Done
   u.make_error = DemonSlayerUtilities::MakeError
   u.feature_add = DemonSlayerUtilities::FeatureAdd

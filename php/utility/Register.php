@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 DemonSlayerUtility::setRegistrar(function (DemonSlayerUtility $u): void {
     $u->clean = [DemonSlayerClean::class, 'call'];
+    $u->clean_add = [DemonSlayerClean::class, 'add'];
+    $u->clean_explain = [DemonSlayerDone::class, 'clean_explain'];
     $u->done = [DemonSlayerDone::class, 'call'];
     $u->make_error = [DemonSlayerMakeError::class, 'call'];
     $u->feature_add = [DemonSlayerFeatureAdd::class, 'call'];

@@ -12,9 +12,18 @@ The SDK exposes the API as capitalised, semantic **Entities** — for example `c
 
 ## Install
 This package is not yet published to RubyGems. Install it from the
-GitHub release tag (`rb/vX.Y.Z`):
+GitHub release tag (`rb/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/demon-slayer-sdk/releases)), or
+from a clone:
 
-- Releases: [https://github.com/voxgig-sdk/demon-slayer-sdk/releases](https://github.com/voxgig-sdk/demon-slayer-sdk/releases)
+```bash
+git clone https://github.com/voxgig-sdk/demon-slayer-sdk
+```
+
+Then add it to your `Gemfile` by path, and run `bundle install`:
+
+```ruby
+gem "voxgig-sdk-demon-slayer-sdk", path: "./demon-slayer-sdk/rb"
+```
 
 
 ## Tutorial: your first API call
