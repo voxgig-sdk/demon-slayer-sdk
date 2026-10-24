@@ -54,6 +54,53 @@ const utility_1 = require("../../utility");
         const ent = testsdk.CombatStyle();
         (0, node_assert_1.default)(null != ent);
     });
+    class FailHook extends __1.BaseFeature {
+        name = 'failhook';
+        version = '0.0.1';
+        active = true;
+        unexpected = 0;
+        init() { }
+        PreSpec() { throw new Error('combat_style hook failed'); }
+        PreUnexpected() { this.unexpected++; }
+    }
+    (0, node_test_1.test)('stream-error', async () => {
+        const offline = { net: { offline: true } };
+        await node_assert_1.default.rejects(async () => {
+            for await (const _item of __1.DemonSlayerSDK.test(offline).CombatStyle().stream('list')) { }
+        }, /offline/);
+        for await (const _item of __1.DemonSlayerSDK.test(offline).CombatStyle()
+            .stream('list', undefined, { ctrl: { throw: false } })) { }
+        if (null != __1.config.feature?.rbac) {
+            const denied = __1.DemonSlayerSDK.test(undefined, { feature: { rbac: { active: true, deny: true } } });
+            await node_assert_1.default.rejects(async () => {
+                for await (const _item of denied.CombatStyle().stream('list')) { }
+            }, (err) => 'rbac_denied' === err.code);
+        }
+    });
+    (0, node_test_1.test)('stream-ctrl', async () => {
+        const explain = {};
+        const ctrl = { explain };
+        for await (const _item of __1.DemonSlayerSDK.test().CombatStyle().stream('list', undefined, { ctrl })) { }
+        node_assert_1.default.deepStrictEqual(Object.keys(ctrl), ['explain']);
+        (0, node_assert_1.default)(explain === ctrl.explain && 0 < Object.keys(explain).length);
+    });
+    (0, node_test_1.test)('unexpected', async () => {
+        const hook = new FailHook();
+        const client = new __1.DemonSlayerSDK({ feature: { test: { active: true } }, extend: [hook] });
+        await node_assert_1.default.rejects(client.CombatStyle().list(), /hook failed/);
+        (0, node_assert_1.default)(0 < hook.unexpected);
+        const fired = hook.unexpected;
+        node_assert_1.default.strictEqual(await client.CombatStyle().list(undefined, { throw: false }), undefined);
+        (0, node_assert_1.default)(fired < hook.unexpected);
+    });
+    (0, node_test_1.test)('validate', async (t) => {
+        if (null == __1.config.feature?.validate) {
+            t.skip('feature not present in this SDK: validate');
+            return;
+        }
+        const client = __1.DemonSlayerSDK.test(undefined, { feature: { validate: { active: true } } });
+        await node_assert_1.default.rejects(client.CombatStyle().list({ "name": 1 }), (err) => 'validate_failed' === err.code);
+    });
     (0, node_test_1.test)('basic', async (t) => {
         const live = 'TRUE' === process.env.DEMON_SLAYER_TEST_LIVE;
         for (const op of ['list', 'load']) {
@@ -62,7 +109,7 @@ const utility_1 = require("../../utility");
         }
         const setup = basicSetup();
         if (setup.live) {
-            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": { "description": { "a": true, "h": "Description", "n": "description", "r": false, "sh": "Detailed description of the combat style", "t": "`$STRING`", "key$": "description", "index$": 0 }, "forms": { "a": true, "h": "Forms", "n": "forms", "r": false, "sh": "List of forms or techniques within this combat style", "t": "`$ARRAY`", "key$": "forms", "index$": 1 }, "id": { "a": true, "h": "Id", "n": "id", "r": false, "sh": "Unique identifier for the combat style", "t": "`$STRING`", "key$": "id", "index$": 2 }, "name": { "a": true, "h": "Name", "n": "name", "r": false, "sh": "Name of the combat style", "t": "`$STRING`", "key$": "name", "index$": 3 }, "type": { "a": true, "h": "Type", "n": "type", "r": false, "sh": "Type of combat style (Breathing Technique, Blood Demon Art, etc.)", "t": "`$STRING`", "key$": "type", "index$": 4 }, "users": { "a": true, "h": "Users", "n": "users", "r": false, "sh": "Characters who use this combat style", "t": "`$ARRAY`", "key$": "users", "index$": 5 } }, "id": { "field": "id", "name": "id" }, "name": "combat_style", "op": { "list": { "input": "data", "name": "list", "points": [{ "a": true, "co": { "id": "GET /combat-styles", "source": "openapi3", "version": 2 }, "g": { "query": [{ "a": true, "k": "query", "n": "name", "or": "name", "r": false, "t": "`$STRING`", "index$": 0 }, { "a": true, "k": "query", "n": "type", "or": "type", "r": false, "t": "`$STRING`", "index$": 1 }] }, "k": "http", "m": "GET", "o": "/combat-styles", "q": { "exist": ["name", "type"] }, "r": {}, "s": [{ "lit": "combat-styles" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "list" }, "load": { "input": "data", "name": "load", "points": [{ "a": true, "co": { "id": "GET /combat-styles/{id}", "source": "openapi3", "version": 2 }, "g": { "params": [{ "a": true, "k": "param", "n": "id", "or": "id", "r": true, "t": "`$STRING`", "index$": 0 }] }, "k": "http", "m": "GET", "o": "/combat-styles/{id}", "q": { "exist": ["id"] }, "r": {}, "s": [{ "lit": "combat-styles" }, { "var": "id" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "load" } }, "relations": { "ancestors": [] }, "key$": "combat_style", "name__orig": "combat_style", "Name": "CombatStyle", "name_": "combat_style", "name-": "combat-style", "NAME": "COMBAT_STYLE", "index$": 1 }, { "active": true, "entity": "combat_style", "key$": "BasicCombatStyleFlow", "kind": "basic", "name": "BasicCombatStyleFlow", "param": {}, "step": [{ "a": true, "d": {}, "i": {}, "m": {}, "o": "list", "s": [], "v": [{ "apply": "ItemExists", "def": { "ref": "combat_style_ref01" } }], "index$": 0 }, { "a": true, "d": {}, "i": { "ref": "combat_style_ref01", "srcdatavar": "combat_style_ref01_data", "suffix": "_dt0" }, "m": { "id": "combat_style01" }, "o": "load", "s": [], "v": [{ "apply": "TextFieldMark", "def": { "mark": "Mark01-combat_style_ref01" } }], "index$": 1 }] }, 'CombatStyle', { "GET /combat-styles": { "protocol": "http", "parameters": [{ "name": "name", "in": "query", "description": "Filter combat styles by name", "required": false, "schema": { "type": "string" }, "index$": 0 }, { "name": "type", "in": "query", "description": "Filter combat styles by type", "required": false, "schema": { "type": "string" }, "index$": 1 }] }, "GET /combat-styles/{id}": { "protocol": "http", "parameters": [{ "name": "id", "in": "path", "description": "Unique identifier of the combat style", "required": true, "schema": { "type": "string" }, "index$": 0 }] } });
+            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": { "description": { "a": true, "h": "Description", "n": "description", "r": false, "sh": "Detailed description of the combat style", "t": "`$STRING`", "key$": "description", "index$": 0 }, "forms": { "a": true, "h": "Forms", "n": "forms", "r": false, "sh": "List of forms or techniques within this combat style", "t": "`$ARRAY`", "key$": "forms", "index$": 1 }, "id": { "a": true, "h": "Id", "n": "id", "r": false, "sh": "Unique identifier for the combat style", "t": "`$STRING`", "key$": "id", "index$": 2 }, "name": { "a": true, "h": "Name", "n": "name", "r": false, "sh": "Name of the combat style", "t": "`$STRING`", "key$": "name", "index$": 3 }, "type": { "a": true, "h": "Type", "n": "type", "r": false, "sh": "Type of combat style (Breathing Technique, Blood Demon Art, etc.)", "t": "`$STRING`", "key$": "type", "index$": 4 }, "users": { "a": true, "h": "Users", "n": "users", "r": false, "sh": "Characters who use this combat style", "t": "`$ARRAY`", "key$": "users", "index$": 5 } }, "id": { "field": "id", "name": "id" }, "name": "combat_style", "op": { "list": { "input": "data", "name": "list", "points": [{ "a": true, "co": { "id": "GET /combat-styles", "source": "openapi3", "version": 2 }, "g": { "query": [{ "a": true, "k": "query", "n": "name", "or": "name", "r": false, "t": "`$STRING`", "index$": 0 }, { "a": true, "k": "query", "n": "type", "or": "type", "r": false, "t": "`$STRING`", "index$": 1 }] }, "k": "http", "m": "GET", "o": "/combat-styles", "q": {}, "r": {}, "rs": { "kind": "json", "media": "application/json" }, "s": [{ "lit": "combat-styles" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "list" }, "load": { "input": "data", "name": "load", "points": [{ "a": true, "co": { "id": "GET /combat-styles/{id}", "source": "openapi3", "version": 2 }, "g": { "params": [{ "a": true, "k": "param", "n": "id", "or": "id", "r": true, "t": "`$STRING`", "index$": 0 }] }, "k": "http", "m": "GET", "o": "/combat-styles/{id}", "q": { "exist": ["id"] }, "r": {}, "rs": { "kind": "json", "media": "application/json" }, "s": [{ "lit": "combat-styles" }, { "var": "id" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "load" } }, "relations": { "ancestors": [] }, "key$": "combat_style", "name__orig": "combat_style", "Name": "CombatStyle", "name_": "combat_style", "name-": "combat-style", "NAME": "COMBAT_STYLE", "index$": 1 }, { "active": true, "entity": "combat_style", "key$": "BasicCombatStyleFlow", "kind": "basic", "name": "BasicCombatStyleFlow", "param": {}, "step": [{ "a": true, "d": {}, "i": {}, "m": {}, "o": "list", "s": [], "v": [{ "apply": "ItemExists", "def": { "ref": "combat_style_ref01" } }], "index$": 0 }, { "a": true, "d": {}, "i": { "ref": "combat_style_ref01", "srcdatavar": "combat_style_ref01_data", "suffix": "_dt0" }, "m": { "id": "combat_style01" }, "o": "load", "s": [], "v": [{ "apply": "TextFieldMark", "def": { "mark": "Mark01-combat_style_ref01" } }], "index$": 1 }] }, 'CombatStyle', { "GET /combat-styles": { "protocol": "http", "parameters": [{ "name": "name", "in": "query", "description": "Filter combat styles by name", "required": false, "schema": { "type": "string" }, "index$": 0 }, { "name": "type", "in": "query", "description": "Filter combat styles by type", "required": false, "schema": { "type": "string" }, "index$": 1 }] }, "GET /combat-styles/{id}": { "protocol": "http", "parameters": [{ "name": "id", "in": "path", "description": "Unique identifier of the combat style", "required": true, "schema": { "type": "string" }, "index$": 0 }] } }, { strict: LIVE_STRICT, t });
         }
         const client = setup.client;
         const struct = setup.struct;
@@ -80,6 +127,11 @@ const utility_1 = require("../../utility");
         (0, node_assert_1.default)(combat_style_ref01_data_dt0.id === combat_style_ref01_data.id);
     });
 });
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const LIVE_STRICT = true;
 function basicSetup(extra) {
     // TODO: fix test def options
     const options = {}; // null

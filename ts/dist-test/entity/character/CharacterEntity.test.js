@@ -54,6 +54,53 @@ const utility_1 = require("../../utility");
         const ent = testsdk.Character();
         (0, node_assert_1.default)(null != ent);
     });
+    class FailHook extends __1.BaseFeature {
+        name = 'failhook';
+        version = '0.0.1';
+        active = true;
+        unexpected = 0;
+        init() { }
+        PreSpec() { throw new Error('character hook failed'); }
+        PreUnexpected() { this.unexpected++; }
+    }
+    (0, node_test_1.test)('stream-error', async () => {
+        const offline = { net: { offline: true } };
+        await node_assert_1.default.rejects(async () => {
+            for await (const _item of __1.DemonSlayerSDK.test(offline).Character().stream('list')) { }
+        }, /offline/);
+        for await (const _item of __1.DemonSlayerSDK.test(offline).Character()
+            .stream('list', undefined, { ctrl: { throw: false } })) { }
+        if (null != __1.config.feature?.rbac) {
+            const denied = __1.DemonSlayerSDK.test(undefined, { feature: { rbac: { active: true, deny: true } } });
+            await node_assert_1.default.rejects(async () => {
+                for await (const _item of denied.Character().stream('list')) { }
+            }, (err) => 'rbac_denied' === err.code);
+        }
+    });
+    (0, node_test_1.test)('stream-ctrl', async () => {
+        const explain = {};
+        const ctrl = { explain };
+        for await (const _item of __1.DemonSlayerSDK.test().Character().stream('list', undefined, { ctrl })) { }
+        node_assert_1.default.deepStrictEqual(Object.keys(ctrl), ['explain']);
+        (0, node_assert_1.default)(explain === ctrl.explain && 0 < Object.keys(explain).length);
+    });
+    (0, node_test_1.test)('unexpected', async () => {
+        const hook = new FailHook();
+        const client = new __1.DemonSlayerSDK({ feature: { test: { active: true } }, extend: [hook] });
+        await node_assert_1.default.rejects(client.Character().list(), /hook failed/);
+        (0, node_assert_1.default)(0 < hook.unexpected);
+        const fired = hook.unexpected;
+        node_assert_1.default.strictEqual(await client.Character().list(undefined, { throw: false }), undefined);
+        (0, node_assert_1.default)(fired < hook.unexpected);
+    });
+    (0, node_test_1.test)('validate', async (t) => {
+        if (null == __1.config.feature?.validate) {
+            t.skip('feature not present in this SDK: validate');
+            return;
+        }
+        const client = __1.DemonSlayerSDK.test(undefined, { feature: { validate: { active: true } } });
+        await node_assert_1.default.rejects(client.Character().list({ "affiliation": 1 }), (err) => 'validate_failed' === err.code);
+    });
     (0, node_test_1.test)('basic', async (t) => {
         const live = 'TRUE' === process.env.DEMON_SLAYER_TEST_LIVE;
         for (const op of ['list', 'load']) {
@@ -62,7 +109,7 @@ const utility_1 = require("../../utility");
         }
         const setup = basicSetup();
         if (setup.live) {
-            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": { "abilities": { "a": true, "h": "Abilities", "n": "abilities", "r": false, "sh": "List of abilities and techniques the character possesses", "t": "`$ARRAY`", "key$": "abilities", "index$": 0 }, "affiliation": { "a": true, "h": "Affiliation", "n": "affiliation", "r": false, "sh": "Organization or group the character belongs to", "t": "`$STRING`", "key$": "affiliation", "index$": 1 }, "age": { "a": true, "h": "Age", "n": "age", "r": false, "sh": "Age of the character", "t": "`$INTEGER`", "key$": "age", "index$": 2 }, "combatStyle": { "a": true, "h": "Combat Style", "n": "combatStyle", "r": false, "sh": "Primary combat style or breathing technique used by the character", "t": "`$STRING`", "key$": "combatStyle", "index$": 3 }, "description": { "a": true, "h": "Description", "n": "description", "r": false, "sh": "Detailed description of the character", "t": "`$STRING`", "key$": "description", "index$": 4 }, "gender": { "a": true, "h": "Gender", "n": "gender", "r": false, "sh": "Gender of the character", "t": "`$STRING`", "key$": "gender", "index$": 5 }, "id": { "a": true, "h": "Id", "n": "id", "r": false, "sh": "Unique identifier for the character", "t": "`$STRING`", "key$": "id", "index$": 6 }, "imageUrl": { "a": true, "h": "Image Url", "n": "imageUrl", "r": false, "sh": "URL to the character's image", "t": "`$STRING`", "key$": "imageUrl", "index$": 7 }, "name": { "a": true, "h": "Name", "n": "name", "r": false, "sh": "Name of the character", "t": "`$STRING`", "key$": "name", "index$": 8 }, "quotes": { "a": true, "h": "Quotes", "n": "quotes", "r": false, "sh": "Memorable quotes from the character", "t": "`$ARRAY`", "key$": "quotes", "index$": 9 }, "race": { "a": true, "h": "Race", "n": "race", "r": false, "sh": "Race of the character (Human, Demon, etc.)", "t": "`$STRING`", "key$": "race", "index$": 10 } }, "id": { "field": "id", "name": "id" }, "name": "character", "op": { "list": { "input": "data", "name": "list", "points": [{ "a": true, "co": { "id": "GET /characters", "source": "openapi3", "version": 2 }, "g": { "query": [{ "a": true, "k": "query", "n": "affiliation", "or": "affiliation", "r": false, "t": "`$STRING`", "index$": 0 }, { "a": true, "k": "query", "n": "age", "or": "age", "r": false, "t": "`$INTEGER`", "index$": 1 }, { "a": true, "k": "query", "n": "gender", "or": "gender", "r": false, "t": "`$STRING`", "index$": 2 }, { "a": true, "k": "query", "n": "name", "or": "name", "r": false, "t": "`$STRING`", "index$": 3 }] }, "k": "http", "m": "GET", "o": "/characters", "q": { "exist": ["affiliation", "age", "gender", "name"] }, "r": {}, "s": [{ "lit": "characters" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "list" }, "load": { "input": "data", "name": "load", "points": [{ "a": true, "co": { "id": "GET /characters/{id}", "source": "openapi3", "version": 2 }, "g": { "params": [{ "a": true, "k": "param", "n": "id", "or": "id", "r": true, "t": "`$STRING`", "index$": 0 }] }, "k": "http", "m": "GET", "o": "/characters/{id}", "q": { "exist": ["id"] }, "r": {}, "s": [{ "lit": "characters" }, { "var": "id" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "load" } }, "relations": { "ancestors": [] }, "key$": "character", "name__orig": "character", "Name": "Character", "name_": "character", "name-": "character", "NAME": "CHARACTER", "index$": 0 }, { "active": true, "entity": "character", "key$": "BasicCharacterFlow", "kind": "basic", "name": "BasicCharacterFlow", "param": {}, "step": [{ "a": true, "d": {}, "i": {}, "m": {}, "o": "list", "s": [], "v": [{ "apply": "ItemExists", "def": { "ref": "character_ref01" } }], "index$": 0 }, { "a": true, "d": {}, "i": { "ref": "character_ref01", "srcdatavar": "character_ref01_data", "suffix": "_dt0" }, "m": { "id": "character01" }, "o": "load", "s": [], "v": [{ "apply": "TextFieldMark", "def": { "mark": "Mark01-character_ref01" } }], "index$": 1 }] }, 'Character', { "GET /characters": { "protocol": "http", "parameters": [{ "name": "name", "in": "query", "description": "Filter characters by name", "required": false, "schema": { "type": "string" }, "index$": 0 }, { "name": "gender", "in": "query", "description": "Filter characters by gender", "required": false, "schema": { "type": "string", "enum": ["Male", "Female"] }, "index$": 1 }, { "name": "age", "in": "query", "description": "Filter characters by age", "required": false, "schema": { "type": "integer" }, "index$": 2 }, { "name": "affiliation", "in": "query", "description": "Filter characters by affiliation", "required": false, "schema": { "type": "string" }, "index$": 3 }] }, "GET /characters/{id}": { "protocol": "http", "parameters": [{ "name": "id", "in": "path", "description": "Unique identifier of the character", "required": true, "schema": { "type": "string" }, "index$": 0 }] } });
+            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": { "abilities": { "a": true, "h": "Abilities", "n": "abilities", "r": false, "sh": "List of abilities and techniques the character possesses", "t": "`$ARRAY`", "key$": "abilities", "index$": 0 }, "affiliation": { "a": true, "h": "Affiliation", "n": "affiliation", "r": false, "sh": "Organization or group the character belongs to", "t": "`$STRING`", "key$": "affiliation", "index$": 1 }, "age": { "a": true, "h": "Age", "n": "age", "r": false, "sh": "Age of the character", "t": "`$INTEGER`", "key$": "age", "index$": 2 }, "combatStyle": { "a": true, "h": "Combat Style", "n": "combatStyle", "r": false, "sh": "Primary combat style or breathing technique used by the character", "t": "`$STRING`", "key$": "combatStyle", "index$": 3 }, "description": { "a": true, "h": "Description", "n": "description", "r": false, "sh": "Detailed description of the character", "t": "`$STRING`", "key$": "description", "index$": 4 }, "gender": { "a": true, "h": "Gender", "n": "gender", "r": false, "sh": "Gender of the character", "t": "`$STRING`", "key$": "gender", "index$": 5 }, "id": { "a": true, "h": "Id", "n": "id", "r": false, "sh": "Unique identifier for the character", "t": "`$STRING`", "key$": "id", "index$": 6 }, "imageUrl": { "a": true, "h": "Image Url", "n": "imageUrl", "r": false, "sh": "URL to the character's image", "t": "`$STRING`", "key$": "imageUrl", "index$": 7 }, "name": { "a": true, "h": "Name", "n": "name", "r": false, "sh": "Name of the character", "t": "`$STRING`", "key$": "name", "index$": 8 }, "quotes": { "a": true, "h": "Quotes", "n": "quotes", "r": false, "sh": "Memorable quotes from the character", "t": "`$ARRAY`", "key$": "quotes", "index$": 9 }, "race": { "a": true, "h": "Race", "n": "race", "r": false, "sh": "Race of the character (Human, Demon, etc.)", "t": "`$STRING`", "key$": "race", "index$": 10 } }, "id": { "field": "id", "name": "id" }, "name": "character", "op": { "list": { "input": "data", "name": "list", "points": [{ "a": true, "co": { "id": "GET /characters", "source": "openapi3", "version": 2 }, "g": { "query": [{ "a": true, "k": "query", "n": "affiliation", "or": "affiliation", "r": false, "t": "`$STRING`", "index$": 0 }, { "a": true, "k": "query", "n": "age", "or": "age", "r": false, "t": "`$INTEGER`", "index$": 1 }, { "a": true, "k": "query", "n": "gender", "or": "gender", "r": false, "t": "`$STRING`", "index$": 2 }, { "a": true, "k": "query", "n": "name", "or": "name", "r": false, "t": "`$STRING`", "index$": 3 }] }, "k": "http", "m": "GET", "o": "/characters", "q": {}, "r": {}, "rs": { "kind": "json", "media": "application/json" }, "s": [{ "lit": "characters" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "list" }, "load": { "input": "data", "name": "load", "points": [{ "a": true, "co": { "id": "GET /characters/{id}", "source": "openapi3", "version": 2 }, "g": { "params": [{ "a": true, "k": "param", "n": "id", "or": "id", "r": true, "t": "`$STRING`", "index$": 0 }] }, "k": "http", "m": "GET", "o": "/characters/{id}", "q": { "exist": ["id"] }, "r": {}, "rs": { "kind": "json", "media": "application/json" }, "s": [{ "lit": "characters" }, { "var": "id" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "load" } }, "relations": { "ancestors": [] }, "key$": "character", "name__orig": "character", "Name": "Character", "name_": "character", "name-": "character", "NAME": "CHARACTER", "index$": 0 }, { "active": true, "entity": "character", "key$": "BasicCharacterFlow", "kind": "basic", "name": "BasicCharacterFlow", "param": {}, "step": [{ "a": true, "d": {}, "i": {}, "m": {}, "o": "list", "s": [], "v": [{ "apply": "ItemExists", "def": { "ref": "character_ref01" } }], "index$": 0 }, { "a": true, "d": {}, "i": { "ref": "character_ref01", "srcdatavar": "character_ref01_data", "suffix": "_dt0" }, "m": { "id": "character01" }, "o": "load", "s": [], "v": [{ "apply": "TextFieldMark", "def": { "mark": "Mark01-character_ref01" } }], "index$": 1 }] }, 'Character', { "GET /characters": { "protocol": "http", "parameters": [{ "name": "name", "in": "query", "description": "Filter characters by name", "required": false, "schema": { "type": "string" }, "index$": 0 }, { "name": "gender", "in": "query", "description": "Filter characters by gender", "required": false, "schema": { "type": "string", "enum": ["Male", "Female"] }, "index$": 1 }, { "name": "age", "in": "query", "description": "Filter characters by age", "required": false, "schema": { "type": "integer" }, "index$": 2 }, { "name": "affiliation", "in": "query", "description": "Filter characters by affiliation", "required": false, "schema": { "type": "string" }, "index$": 3 }] }, "GET /characters/{id}": { "protocol": "http", "parameters": [{ "name": "id", "in": "path", "description": "Unique identifier of the character", "required": true, "schema": { "type": "string" }, "index$": 0 }] } }, { strict: LIVE_STRICT, t });
         }
         const client = setup.client;
         const struct = setup.struct;
@@ -80,6 +127,11 @@ const utility_1 = require("../../utility");
         (0, node_assert_1.default)(character_ref01_data_dt0.id === character_ref01_data.id);
     });
 });
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const LIVE_STRICT = true;
 function basicSetup(extra) {
     // TODO: fix test def options
     const options = {}; // null

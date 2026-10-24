@@ -22,11 +22,33 @@ const PLAN: any[] = [
       "name": "v1"
     },
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [
       "name",
       "gender",
       "age",
       "affiliation"
+    ],
+    "queryArgs": [
+      {
+        "name": "affiliation",
+        "wire": "affiliation"
+      },
+      {
+        "name": "age",
+        "wire": "age"
+      },
+      {
+        "name": "gender",
+        "wire": "gender"
+      },
+      {
+        "name": "name",
+        "wire": "name"
+      }
     ],
     "auth": null,
     "status": 200,
@@ -66,7 +88,12 @@ const PLAN: any[] = [
     ],
     "select": {},
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [],
+    "queryArgs": [],
     "auth": null,
     "status": 200,
     "sample": {
@@ -100,9 +127,23 @@ const PLAN: any[] = [
       "type": "v1"
     },
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [
       "name",
       "type"
+    ],
+    "queryArgs": [
+      {
+        "name": "name",
+        "wire": "name"
+      },
+      {
+        "name": "type",
+        "wire": "type"
+      }
     ],
     "auth": null,
     "status": 200,
@@ -140,7 +181,12 @@ const PLAN: any[] = [
     ],
     "select": {},
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [],
+    "queryArgs": [],
     "auth": null,
     "status": 200,
     "sample": {

@@ -3,5 +3,25 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "Age of the character",
+      "Detailed description of the character",
+      "Detailed description of the combat style",
+      "List of abilities and techniques the character possesses",
+      "List of forms or techniques within this combat style",
+      "Name of the combat style",
+      "Organization or group the character belongs to",
+      "Primary combat style or breathing technique used by the character",
+      "Production server",
+      "Successful response with character data",
+      "Successful response with character details",
+      "Successful response with combat style data",
+      "Successful response with combat style details",
+      "The Demon Slayer API provides developers with structured data related to the popular anime series, including character details, combat styles, and affiliations. It allows users to access information about characters, such as their age, gender, abilities, and memorable quotes, enhancing the experience for fans and developers alike.",
+      "Type of combat style (Breathing Technique, Blood Demon Art, etc.)",
+      "Unique identifier for the combat style"
+    ]
+  }
 }

@@ -3,11 +3,16 @@ declare(strict_types=1);
 
 // DemonSlayer SDK utility: prepare_body
 
+require_once __DIR__ . '/Media.php';
+
 class DemonSlayerPrepareBody
 {
     public static function call(DemonSlayerContext $ctx): mixed
     {
         if ($ctx->op->input === 'data') {
+            if (DemonSlayerMedia::isRawRequest($ctx->point)) {
+                return DemonSlayerMedia::rawBody($ctx->reqdata);
+            }
             $body = ($ctx->utility->transform_request)($ctx);
             // PHP cannot tell an empty map from an empty list, and this
             // vendored struct answers [] where the canonical transform

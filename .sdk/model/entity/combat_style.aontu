@@ -85,11 +85,9 @@ main: kit: entity: combat_style: {
           }
           m: "GET"
           o: "/combat-styles"
-          q: {
-            exist: [
-              "name"
-              "type"
-            ]
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {
@@ -129,6 +127,10 @@ main: kit: entity: combat_style: {
             exist: [
               "id"
             ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {
